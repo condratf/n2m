@@ -1,0 +1,26 @@
+@import '@/styles/variables.scss';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  height: 102px;
+  border-radius: 30px;
+  background: $text-grey;
+  backdrop-filter: blur(8px);
+}
+
+.navigation {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.link {
+  color: $text-black;
+  width: 114px;
+}
