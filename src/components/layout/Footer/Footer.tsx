@@ -34,7 +34,7 @@ export const Footer = () => {
 
   return (
     <div className={styles.footer}>
-      {/* email block */}
+      
       <div className={styles.emailBlock}>
         <span>{t('support@daniertech.com')}</span>
         <Button className={styles.button} btnType="button" variant={'secondary'}>
@@ -42,7 +42,7 @@ export const Footer = () => {
         </Button>
       </div>
 
-      {/* contacts block */}
+      
       <div className={styles.contactsBlock}>
         {contacts.map(({ title, number }, i) => (
           <div className={styles.contactsBlockItem} key={`${title}-${i}`}>
@@ -52,7 +52,7 @@ export const Footer = () => {
         ))}
       </div>
 
-      {/* bottom block */}
+      
       <div className={styles.bottomBlock}>
         <div className={styles.bottomBlockLinks}>
           <span>{t('About company')}</span>
