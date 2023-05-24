@@ -8,8 +8,15 @@
   padding: 16px;
   height: 102px;
   border-radius: 30px;
-  background: $text-grey;
   backdrop-filter: blur(8px);
+  background-color: $text-grey;
+
+  @media #{$mobile} {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 129px;
+  }
 }
 
 .navigation {
@@ -18,9 +25,54 @@
   justify-content: center;
   align-items: flex-start;
   padding: 0px;
+
+  @media #{$mobile} {
+    margin: 2rem 0;
+  }
 }
 
 .link {
   color: $text-black;
-  width: 114px;
+  border-color: $text-grey;
+}
+
+.button {
+  min-width: 119px;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+.mobileNav {
+  display: none;
+  width: 100%;
+
+  @media #{$mobile} {
+    display: block;
+  }
+}
+
+.mobileNavMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 0px 0px 16px;
+
+  span {
+    color: $orange-accent;
+  }
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    color: $text-soft-black;
+    margin-bottom: 0.5rem;
+  }
 }

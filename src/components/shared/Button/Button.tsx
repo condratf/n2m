@@ -1,13 +1,13 @@
 import { FC } from 'react'
 import { classNames } from '@/utils'
 // types
-import { ButtonProps, ButtonType, ButtonVariant } from './types'
+import { ButtonProps } from './types'
 // styles
 import styles from './styles.module.scss'
 
 export const Button: FC<ButtonProps> = (({
-  type,
-  variant = ButtonVariant.primary,
+  btnType,
+  variant = 'primary',
   className = '',
   children,
   ...props
@@ -15,14 +15,14 @@ export const Button: FC<ButtonProps> = (({
   const classes = classNames(
     className,
     {
-      [styles.btn]: type === 'button',
-      [styles.btnPrimary]: type === 'button' && variant === ButtonVariant.primary,
-      [styles.btnSecondary]: type === 'button' && variant === ButtonVariant.secondary,
-      [styles.btnTertiary]: type === 'button' && variant === ButtonVariant.tertiary,
-      [styles.tab]: type === 'tab' as ButtonType,
-      [styles.tabPrimary]: type === 'tab' as ButtonType && variant === ButtonVariant.primary,
-      [styles.tabSecondary]: type === 'tab' as ButtonType && variant === ButtonVariant.secondary,
-      [styles.tabTertiary]: type === 'tab' as ButtonType && variant === ButtonVariant.tertiary,
+      [styles.btn]: btnType === 'button',
+      [styles.btnPrimary]: btnType === 'button' && variant === 'primary',
+      [styles.btnSecondary]: btnType === 'button' && variant === 'secondary',
+      [styles.btnTertiary]: btnType === 'button' && variant === 'tertiary',
+      [styles.tab]: btnType === 'tab',
+      [styles.tabPrimary]: btnType === 'tab' && variant === 'primary',
+      [styles.tabSecondary]: btnType === 'tab' && variant === 'secondary',
+      [styles.tabTertiary]: btnType === 'tab' && variant === 'tertiary',
     }
   )
 
