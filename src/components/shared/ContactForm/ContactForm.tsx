@@ -24,12 +24,12 @@ export const ContactForm = () => {
           {t('Take your freelancing to the next level with our app. Manage your work, Grow your network, and Never miss an opportunity.')}
         </p>
         <form>
-          <input type="text" />
-          <textarea name="" id="" cols={30} rows={10} />
+          <input className={styles.emailInput} placeholder={t('Your email') || ''} type="email" />
+          <textarea className={styles.textInput} placeholder={t('Your text') || ''} name="" id="" cols={30} rows={7} />
 
           <div>
             <input type="checkbox" id="agree" onChange={handleCheckboxChange} />
-            <label htmlFor="agree">{t('I have read and accept the Privacy Policy')}</label>
+            <label className={styles.privacyLabel} htmlFor="agree">{t('I have read and accept the Privacy Policy')}</label>
           </div>
 
           <Button btnType='button'>
