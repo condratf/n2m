@@ -1,0 +1,63 @@
+@import '@/styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  max-width: 1200px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '有限公司';
+    left: calc(50% - 125px);
+    top: -59px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 154px;
+    text-align: center;
+    text-transform: uppercase;
+    /* Accent/Cian */
+    color: #84FFFF;
+    z-index: -2;
+
+    @media #{$mobile} {
+      font-weight: 700;
+      font-size: 64px;
+    }
+  }
+
+  h5 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 25px;
+    text-align: center;
+    color: #1A1923;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    gap: 16px;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 24px;
+      // Accent/Phosphor
+      background: #D4FF6C;
+      border-radius: 20px;
+      color: #1A1923;
+    }
+  }
+}
