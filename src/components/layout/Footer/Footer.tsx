@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 // local
 import { Button } from '@/components/shared'
+
 // styles
 import styles from './styles.module.scss'
+import { lato, syncopate } from '@/utils/fonts'
 
 export const Footer = () => {
   const { t } = useTranslation()
@@ -33,10 +35,10 @@ export const Footer = () => {
   ]
 
   return (
-    <div className={styles.footer}>
+    <div className={`${styles.footer} ${lato.className}`}>
       
       <div className={styles.emailBlock}>
-        <span>{t('support@daniertech.com')}</span>
+        <span className={syncopate.className}>{t('support@daniertech.com')}</span>
         <Button className={styles.button} btnType="button" variant={'secondary'}>
           {t('Write us')}
         </Button>

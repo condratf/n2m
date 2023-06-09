@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { classNames } from '@/utils'
+import { lato } from '@/utils/fonts'
 // types
 import { ButtonProps } from './types'
 // styles
@@ -15,6 +16,7 @@ export const Button: FC<ButtonProps> = (({
   const classes = classNames(
     className,
     {
+      [lato.className]: true,
       [styles.btn]: btnType === 'button',
       [styles.btnPrimary]: btnType === 'button' && variant === 'primary',
       [styles.btnSecondary]: btnType === 'button' && variant === 'secondary',

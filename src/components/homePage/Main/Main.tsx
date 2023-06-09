@@ -1,20 +1,9 @@
 import { FC } from 'react'
 import Image from 'next/image'
-import { Lato, Syncopate } from 'next/font/google'
+import { lato, syncopate } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
 
-const lato = Lato({
-  subsets: ['latin'],
-  weight: ['400', '700', '900',],
-  display: 'swap',
-})
-
-const syncopate = Syncopate({
-  subsets: ['latin',],
-  weight: ['400', '700',],
-  display: 'swap',
-})
 
 export const Main: FC = () => {
   const sectionImgList = ['/assets/graphic/cactus/minicactus_1.png', '/assets/graphic/cactus/minicactus_2.png', '/assets/graphic/cactus/minicactus_3.png']
@@ -49,11 +38,11 @@ export const Main: FC = () => {
                   />
                 ))}
               </section>
-              <span>
+              <span className={syncopate.className}>
                 {'more 10'}
               </span>
             </div>
-            <p>
+            <p className={lato.className}>
               {'We provide services in more than 10 areas'}
             </p>
           </div>

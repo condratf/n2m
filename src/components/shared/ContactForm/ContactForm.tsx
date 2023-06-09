@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 // local
 import { Button } from '@/components/shared'
+import { lato } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
 
@@ -11,11 +12,11 @@ export const ContactForm = () => {
   const { t } = useTranslation()
 
   const handleCheckboxChange = () => setAgree(!agree)
-
-  return (
-    <div className={styles.contactForm}>
+ 
+  return ( 
+    <div className={`${styles.contactForm} ${lato.className}`}>
       <div className={styles.contactFormMap}>
-        <map></map>
+        {/* <map></map> */}
       </div>
 
       <div className={styles.contactFormContact}>
