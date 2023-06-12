@@ -1,0 +1,156 @@
+@import '@/styles/variables.scss';
+
+.container {
+  max-width: 1200px;
+  margin: 9rem auto;
+  margin-bottom: 3rem;
+
+  @media #{$mobile} {
+    margin-top: 2rem;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  position: relative;
+  max-width: 1200px;
+
+  &::before {
+    content: '有限公司';
+    position: absolute;
+    width: 512px;
+    height: 154px;
+    left: calc(50% - 512px/2);
+    top: -59px;
+    // font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+    /* Accent/Cian */
+    color: #84FFFF;
+    z-index: -2;
+
+    @media #{$mobile} {
+      left: calc(50% - 360px/2);
+      top: -50px;
+      // font-family: 'Syncopate';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 120%;
+    }
+  }
+
+  h1 {
+    // font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 50px;
+    text-align: center;
+    /* Black */
+    color: #1A1923;
+
+    @media #{$mobile} {
+      font-size: 32px;
+      line-height: 33px;
+    }
+  }
+
+  p {
+    display: none;
+
+    @media #{$mobile} {
+      // font-family: 'Lato';
+      max-width: 320px;
+      display: block;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 160%;
+      text-align: center;
+      color: rgba(33, 33, 33, 0.5);
+    }
+  }
+
+  section {
+    display: none;
+
+    @media #{$mobile} {
+      display: block;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      max-width: 100vw;
+      padding: 8px;
+      overflow-x: scroll;
+      /* Light Gray */
+      background: #F5F5F5;
+      border: 1px solid #F5F5F5;
+      backdrop-filter: blur(8px);
+      border-radius: 20px;
+    
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    
+      div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 16px 8px;
+        gap: 10px;
+        // height: 49px;
+        background: transparent;
+        border-radius: 10px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    gap: 8px;
+    max-width: 795px;
+
+    @media #{$mobile} {
+      display: none;
+    }
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+      gap: 10px;
+      background: #D4FF6C;
+      border-radius: 28px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 29px;
+      color: #1A1923;
+
+      @media #{$mobile} {
+        padding: 16px;
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+  }
+}

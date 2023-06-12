@@ -1,0 +1,84 @@
+@import '@/styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  max-width: 800px;
+
+  h2 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 38px;
+    /* Text/Black */
+    color: #212121;
+
+    @media #{$mobile} {
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  max-width: 800px;
+
+  @media #{$mobile} {
+    max-width: 330px;
+  }
+
+  h3 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    /* Text/Black */
+    color: #212121;
+
+    @media #{$mobile} {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    /* Text/Black */
+    color: #212121;
+
+    @media #{$mobile} {
+      font-size: 14px;
+    }
+  }
+
+  ul,
+  ol {
+    display: flex;
+    flex-direction: column;
+
+    li {
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 160%;
+      /* Text/Black */
+      color: #212121;
+
+      @media #{$mobile} {
+        font-size: 14px;
+      }
+    }
+  }
+}

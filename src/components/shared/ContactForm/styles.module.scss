@@ -8,6 +8,7 @@
   background: $light-grey;
   border-radius: 80px;
   width: 100%;
+  max-height: 602px;
 
   @media #{$mobile} {
     display: flex;
@@ -23,6 +24,7 @@
   background: $white;
   border: 8px solid $light-grey;
   border-radius: 80px;
+
   @media #{$mobile} {
     min-width: unset;
     width: 100%;
@@ -86,5 +88,18 @@
 
 .privacyLabel {
   margin-left: 0.5rem;
-  color: $text-black
+  color: $text-black;
+  font-weight: 400;
+
+  span {
+    color: #FF7A40;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}
+
+.checkbox {
+  accent-color: #FF7A40;
+  color: #fff;
+  cursor: pointer;
 }

@@ -6,9 +6,12 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/shared'
 // styles
 import styles from './styles.module.scss'
+import { useIsMobile } from '@/utils'
 
 export const Header = () => {
   const { t } = useTranslation()
+
+  const { isMobile } = useIsMobile()
 
   const links = [
     { name: 'Services', href: '#' },
@@ -25,18 +28,21 @@ export const Header = () => {
         height={48}
       />
 
-      <div className={styles.navigation}>
-        {links.map((item, i) => (
-          <button className={styles.link} key={`${item}-${i}`}>
-            <Link href={item.href}>{t(item.name)}</Link>
-          </button>
-        ))}
-      </div>
+      {!isMobile && (
+        <>
+          <div className={styles.navigation}>
+            {links.map((item, i) => (
+              <button className={styles.link} key={`${item}-${i}`}>
+                <Link href={item.href}>{t(item.name)}</Link>
+              </button>
+            ))}
+          </div>
 
-      <Button className={styles.button} btnType="button" variant={'secondary'}>
-        {t('Write us')}
-      </Button>
+          <Button className={styles.button} btnType="button" variant={'secondary'}>
+            {t('Write us')}
+          </Button>
+        </>
+      )}
     </div>
-
   )
 }

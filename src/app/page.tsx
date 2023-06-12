@@ -1,6 +1,13 @@
 // local libs
 import { ContactForm } from '@/components/shared'
-import { Features, GetStarted, Services, Solutions, WhyChoose, Main } from '@/components/homePage'
+import {
+  Features,
+  GetStarted,
+  Services,
+  Solutions,
+  WhyChoose,
+  Main
+} from '@/components/homePage'
 // styles
 import styles from './styles.module.scss'
 

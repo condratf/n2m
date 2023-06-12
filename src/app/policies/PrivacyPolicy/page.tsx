@@ -2,9 +2,9 @@ import React from 'react'
 // local
 import { ContactForm } from '@/components/shared/ContactForm/ContactForm'
 // styles
-import styles from './styles.module.scss'
+import styles from '../styles.module.scss'
 
-export const Policies = () => {
+export const PrivacyPolicy = () => {
   return (
     <div className={styles.policiesPage}>
       <ContactForm />
@@ -12,4 +12,4 @@ export const Policies = () => {
   )
 }
 
-export default Policies
+export default PrivacyPolicy

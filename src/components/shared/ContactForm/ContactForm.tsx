@@ -12,8 +12,8 @@ export const ContactForm = () => {
   const { t } = useTranslation()
 
   const handleCheckboxChange = () => setAgree(!agree)
- 
-  return ( 
+
+  return (
     <div className={`${styles.contactForm} ${lato.className}`}>
       <div className={styles.contactFormMap}>
         {/* <map></map> */}
@@ -29,8 +29,13 @@ export const ContactForm = () => {
           <textarea className={styles.textInput} placeholder={t('Your text') || ''} name="" id="" cols={30} rows={7} />
 
           <div>
-            <input type="checkbox" id="agree" onChange={handleCheckboxChange} />
-            <label className={styles.privacyLabel} htmlFor="agree">{t('I have read and accept the Privacy Policy')}</label>
+            <input className={styles.checkbox} type="checkbox" id="agree" onChange={handleCheckboxChange} />
+            <label className={styles.privacyLabel} htmlFor="agree">
+              {t('I have read and accept the ')}
+              <span>
+                {'Privacy Policy'}
+              </span>
+            </label>
           </div>
 
           <Button btnType='button'>
