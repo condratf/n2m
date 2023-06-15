@@ -3,6 +3,7 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 // local libs
 import { ListItem } from './ListItem'
+import { lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -41,11 +42,14 @@ export const Features = () => {
       ],
     },
   ]
-
+ 
   return (
-    <div>
-      <h2>{t('Why choose us')}</h2>
-      <p>{t('We leverage the latest programming languages, frameworks, and tools to ensure efficient development processes and deliver robust and scalable software applications that meet the evolving demands of our clients.')}</p>
+    <div className={styles.outerContainer}>
+      <div className={styles.container}>
+        <h2 className={syncopate.className}>{t('TOOLS & TECHNOLOGIES')}</h2>
+        <p className={lato.className}>{t('We leverage the latest programming languages, frameworks, and tools to ensure efficient development processes and deliver robust and scalable software applications that meet the evolving demands of our clients.')}</p>
+      </div>
+
       <div className={styles.featuresContainer}>
         {featuresList.map(({ title, list }, i) => (
           <ListItem

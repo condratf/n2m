@@ -1,9 +1,8 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
 // local
 import { Header, Footer } from '@/components/layout'
-
-const inter = Inter({ subsets: ['latin'] })
+// styles
+import './globals.css'
+import { BottomMobileNav } from '@/components'
 
 export const metadata = {
   title: 'Danier Tech',
@@ -17,9 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body >
         <Header />
         {children}
+        <BottomMobileNav />
         <Footer />
       </body>
     </html>

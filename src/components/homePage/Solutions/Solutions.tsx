@@ -27,7 +27,7 @@ export const Solutions: FC = () => {
               onClick={() => setCurrentTab(title)}
               className={classNames(
                 styles.choiceBlockListItem,
-                { [styles.choiceBlockListItem]: currentTab === title }
+                { [styles.choiceBlockListItemActive]: currentTab === title }
               )}
               key={title}
             >

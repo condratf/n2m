@@ -8,6 +8,10 @@
   gap: 32px;
   max-width: 800px;
 
+  @media #{$mobile} {
+    padding: 2rem;;
+  }
+
   h2 {
     font-style: normal;
     font-weight: 700;

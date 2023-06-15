@@ -6,21 +6,23 @@ import {
   Services,
   Solutions,
   WhyChoose,
-  Main
+  Main,
+  Various
 } from '@/components/homePage'
 // styles
 import styles from './styles.module.scss'
 
-
 export default function Home() {
   return (
-    <main className={`${styles.container}`}>
+    <main className={styles.container}>
       <Main />
-      
+
       <WhyChoose />
 
+      <Various /> 
+ 
       <Services />
-
+    
       <Features />
 
       <Solutions />

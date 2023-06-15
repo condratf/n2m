@@ -1,3 +1,41 @@
+@import '@/styles/variables.scss';
+
+.outerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  width: 1200px;
+  position: relative;
+
+  &::before {
+    content: '有限公司';
+    // font-family: 'Syncopate';
+    position: absolute;
+    // width: 512px;
+    // height: 154px;
+    left: calc(50% - 512px/2);
+    top: -58px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 120%;
+    /* identical to box height, or 154px */
+    text-align: center;
+    text-transform: uppercase;
+    /* Accent/Phosphor */
+    color: #D4FF6C;
+    z-index: -2;
+
+    @media #{$mobile} {
+      left: calc(50% - 256px/2);
+      top: -40px;
+      font-size: 64px;
+    }
+  }
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -5,6 +43,40 @@
   flex-direction: column;
   align-items: flex-start;
   align-items: center;
+  gap: 32px;
+  width: 900px;
+
+  h2 {
+    // font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 25px;
+    /* identical to box height */
+    text-align: center;
+    /* Black */
+    color: #1A1923;
+
+    @media #{$mobile} {
+      font-size: 18px;
+      line-height: 19px;
+    }
+  }
+
+  p {
+    // font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    text-align: center;
+    /* Text/Soft black */
+    color: rgba(33, 33, 33, 0.5);
+
+    @media #{$mobile} {
+      max-width: 328px;
+    }
+  }
 }
 
 .featuresContainer {
@@ -14,9 +86,19 @@
   gap: 16px;
   width: 100%;
   max-width: 1200px;
-  height: min-content;
-  justify-content: center;
+  // height: min-content;
+  justify-content: flex-end;
   overflow: hidden;
   padding: 0;
   position: relative;
+
+  @media #{$mobile} {
+    overflow: scroll;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 90vw;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }

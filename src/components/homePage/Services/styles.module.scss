@@ -13,7 +13,7 @@
   &::before {
     position: absolute;
     content: '有限公司';
-    left: calc(50% - 125px);
+    left: calc(50% - 340px);
     top: -59px;
     font-style: normal;
     font-weight: 700;
@@ -24,8 +24,10 @@
     /* Accent/Cian */
     color: #84FFFF;
     z-index: -2;
+    width: 100%;
 
     @media #{$mobile} {
+      left: calc(50% - 207px);
       font-weight: 700;
       font-size: 64px;
     }
@@ -49,6 +51,10 @@
     max-width: 700px;
     gap: 16px;
 
+    @media #{$mobile} {
+      width: 93%;
+    }
+
     li {
       display: flex;
       flex-direction: row;
@@ -57,7 +63,19 @@
       // Accent/Phosphor
       background: #D4FF6C;
       border-radius: 20px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      /* Black */
       color: #1A1923;
+
+      @media #{$mobile} {
+        padding: 16px;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+      }
     }
   }
 }

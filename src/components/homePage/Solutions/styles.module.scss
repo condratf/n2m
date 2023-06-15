@@ -61,7 +61,7 @@
 
     @media #{$mobile} {
       font-size: 64px;
-      left: calc(50% - 140px);
+      left: calc(50% - 127px);
     }
   }
 
@@ -72,6 +72,7 @@
       font-size: 18px;
       line-height: 19px;
       letter-spacing: 0.3rem;
+      text-align: center;
     }
 
     p {
@@ -88,8 +89,15 @@
   padding: 32px;
   gap: 16px;
   max-width: 600px;
+  height: 510px;
   background: #F5F5F5;
   border-radius: 40px;
+
+  @media #{$mobile} {
+    height: 375px;
+    width: 93%;
+    padding: 17px;
+  }
 }
 
 .choiceBlockTitle {
@@ -99,6 +107,11 @@
   line-height: 29px;
   text-align: center;
   color: #212121;
+
+  @media #{$mobile} {
+    font-size: 18px;
+    line-height: 22px;
+  }
 }
 
 .choiceBlockText {
@@ -108,12 +121,19 @@
   line-height: 29px;
   text-align: center;
   color: rgba(33, 33, 33, 0.5);
+
+  @media #{$mobile} {
+    font-size: 14px;
+    line-height: 160%;
+  }
 }
 
 .choiceBlockList {
   max-width: 536px;
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
@@ -126,7 +146,19 @@
   align-items: center;
   background: #FFFFFF;
   border-radius: 20px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  /* Black */
   color: #1A1923;
+
+  @media #{$mobile} {
+    padding: 16px;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 17px;
+  }
 }
 
 .choiceBlockListItemActive {

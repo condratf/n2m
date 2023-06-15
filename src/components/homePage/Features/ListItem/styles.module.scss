@@ -1,20 +1,74 @@
+@import '@/styles/variables.scss';
+
 .container {
-  align-items: flex-start;
-  background-color: #f5f5f5;
-  border-radius: 40px;
   display: flex;
-  flex: none;
   flex-direction: column;
-  flex-wrap: nowrap;
-  gap: 32px;
-  height: min-content;
   justify-content: center;
-  overflow: hidden;
+  align-items: flex-start;
   padding: 32px;
+  gap: 32px;
+  isolation: isolate;
+  width: 592px;
+  /* Light Gray */
+  background: #F5F5F5;
+  border-radius: 40px;
   position: relative;
-  width: 100%;
-  max-width: 592px;
-  will-change: transform;
+
+  @media #{$mobile} {
+    min-width: 90vw;
+    max-width: 90vw;
+  }
+
+  &::before {
+    white-space: nowrap;
+    position: absolute;
+    width: 256px;
+    height: 154px;
+    right: 0px;
+    top: 0px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 120%;
+    text-align: right;
+    text-transform: uppercase;
+    /* Text/White */
+    color: #FFFFFF;
+
+    @media #{$mobile} {
+      display: none;
+    }
+  }
+
+  &:nth-of-type(1) {
+    &::before {
+      content: '有限公司';
+    }
+  }
+
+  &:nth-of-type(2) {
+    &::before {
+      content: '移动的';
+    }
+  }
+
+  &:nth-of-type(3) {
+    &::before {
+      content: '构架';
+    }
+  }
+
+  &:nth-of-type(4) {
+    &::before {
+      content: '网络';
+    }
+  }
+
+  &:nth-of-type(5) {
+    &::before {
+      content: '数据库管理';
+    }
+  }
 }
 
 .title {
@@ -24,12 +78,17 @@
   justify-content: flex-start;
   flex-shrink: 0;
   transform: none;
-  // font-family: var(--framer-font-family, Inter, Inter Placeholder, sans-serif);
   font-style: normal;
-  font-weight: 400;
-  color: #000;
-  font-size: 16px;
+  font-weight: 700;
   text-align: start;
+  font-size: 32px;
+  line-height: 38px;
+  /* Text/Black */
+  color: #212121;
+
+  @media #{$mobile} {
+    font-size: 24px;
+  }
 }
 
 .listContainer {
@@ -37,24 +96,26 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+
 }
 
 .listItem {
-  align-items: center;
-  background-color: #ffffff;
-  color: #000000;
-  border-radius: 20px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  /* identical to box height */
+  /* Black */
+  color: #1A1923;
   display: flex;
-  flex: none;
   flex-direction: row;
-  flex-wrap: nowrap;
-  gap: 0px;
-  height: min-content;
-  justify-content: center;
-  overflow: hidden;
+  align-items: flex-start;
   padding: 24px;
-  position: relative;
-  width: min-content;
-  will-change: transform;
-  z-index: 1;
+  gap: 10px;
+  background: #FFFFFF;
+  border-radius: 20px;
+
+  @media #{$mobile} {
+    padding: 16px;
+    font-size: 14px;
+  }
 }

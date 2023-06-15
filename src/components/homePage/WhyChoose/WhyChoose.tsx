@@ -1,20 +1,7 @@
 import { FC } from 'react'
-import { Lato, Syncopate } from 'next/font/google'
+import { lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
-
-const lato = Lato({
-  subsets: ['latin'],
-  weight: ['400', '700', '900',],
-  display: 'swap',
-})
-
-const syncopate = Syncopate({
-  subsets: ['latin',],
-  weight: ['400', '700',],
-  display: 'swap',
-})
-
 
 export const WhyChoose: FC = () => {
   return (

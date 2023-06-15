@@ -17,6 +17,8 @@
     gap: 32px;
     background: #F5F5F5;
     border-radius: 40px;
+    height: 410px;
+    max-height: 410px;
 
     @media #{$mobile} {
       flex-direction: column;

@@ -4,7 +4,7 @@ import { lato } from '@/utils/fonts'
 import { PolicyPageProps } from './types'
 // styles
 import styles from './styles.module.scss'
-
+ 
 export const PolicyPage: FC<PolicyPageProps> = ({
   title,
   policiesList

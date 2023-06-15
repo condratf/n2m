@@ -2,9 +2,9 @@
 import { FC, useState } from 'react'
 // local
 import { TextWithTitle } from '@/components/shared'
+import { classNames, lato } from '@/utils'
 // styles
 import styles from './styles.module.scss'
-import { classNames, lato } from '@/utils'
 
 const solutionsTabList = {
   'High Load System': { title: 'High Load System', text: 'Our specialists provide high load system services, ensuring optimal performance and scalability for systems handling heavy user traffic and large volumes of data' },

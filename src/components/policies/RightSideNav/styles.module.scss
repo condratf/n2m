@@ -36,8 +36,10 @@
 }
 
 .containerMobile {
-  position: fixed;
-  margin: 5rem 0;
+  overflow-x: scroll;
+  position: sticky;
+  margin-top: -8rem;
+  top: 7rem;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -1,24 +1,27 @@
 "use client"
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 // local
-import { Button } from '@/components/shared'
+import { Button } from '../Button'
+import { ThankYouModal } from '@/components/modals'
+import { LocationMap } from '../LocationMap'
 import { lato } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
 
-export const ContactForm = () => {
+export const ContactForm: FC = () => {
   const [agree, setAgree] = useState(false)
   const { t } = useTranslation()
-
   const handleCheckboxChange = () => setAgree(!agree)
+
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className={`${styles.contactForm} ${lato.className}`}>
       <div className={styles.contactFormMap}>
-        {/* <map></map> */}
+        <LocationMap />
       </div>
-
+ 
       <div className={styles.contactFormContact}>
         <h3>{t('Write Us')}</h3>
         <p>
@@ -37,14 +40,14 @@ export const ContactForm = () => {
               </span>
             </label>
           </div>
-
-          <Button btnType='button'>
-            {t('Send')}
+  
+          <Button onClick={() => setIsOpen(true)} btnType='button' type='button'>
+            {'Send'}
           </Button>
         </form>
       </div>
 
-
+      <ThankYouModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   )
 }

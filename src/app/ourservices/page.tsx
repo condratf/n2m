@@ -25,9 +25,11 @@ const OurServices: FC = () => {
           ))}
         </section>
         {/* mobile */}
-        <ul>{featureList.map(item => (
-          <li className={lato.className} key={item}>{item}</li>
-        ))}</ul>
+        <ul>
+          {featureList.map(item => (
+            <li className={lato.className} key={item}>{item}</li>
+          ))}
+        </ul>
       </div>
 
       <BottomBlock />

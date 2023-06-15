@@ -1,10 +1,12 @@
 "use client"
+import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import { FC } from 'react'
-import { useTranslation } from 'react-i18next'
+// locals
+import { lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
-
+ 
 export const GetStarted: FC = () => {
   const { t } = useTranslation()
   const title = t('Get Started Today')
@@ -17,18 +19,19 @@ export const GetStarted: FC = () => {
   ]
 
   return (
-    <div className={styles.container}>
-      <h5 className={styles.title}>{title}</h5>
-
-      <ol className={styles.listContainer}>
-        {list.map(({ img, title, text }, i) => (
-          <li className={styles.listItem} key={`${i}-${title}`}>
-            <Image src={img} alt={title} width={64} height={64} />
-            <h5>{title}</h5>
-            <p>{text}</p>
-          </li>
-        ))}
-      </ol>
+    <div className={styles.outerContainer}>
+      <h5 className={`${styles.title} ${syncopate.className}`}>{title}</h5>
+      <div className={styles.container}>
+        <ol className={styles.listContainer}>
+          {list.map(({ img, title, text }, i) => (
+            <li className={`${styles.listItem} ${lato.className}`} key={`${i}-${title}`}>
+              <Image src={img} alt={title} width={64} height={64} />
+              <h5>{i}{'. '}{title}</h5>
+              <p>{text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
     </div>
   )
 }

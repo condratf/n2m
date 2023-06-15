@@ -9,6 +9,8 @@
   gap: 48px;
   background-color: $light-grey;
   border-radius: 60px;
+  max-width: 1440px;
+  margin: 0 auto;
 
   @media #{$mobile} {
     display: flex;
@@ -16,6 +18,7 @@
     align-items: flex-start;
     padding: 32px 16px 16px;
     gap: 32px;
+    border-radius: 30px;
   }
 }
 
@@ -69,6 +72,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 8px;
   width: 145px;
   height: 57px;
 
@@ -138,20 +142,21 @@
 .button {
   min-width: 119px;
   @media #{$mobile} {
-    width: 100%;
+    width: 100% !important;
     height: 70px;
     padding: 24px 32px;
   }
 }
 
 .link {
+  font-weight: 700;
   color: $text-black;
   border-color: $text-grey;
   white-space: nowrap;
   overflow: hidden;
 }
 
-.licensesLink {
+.licensesLink { 
   font-style: normal;
   font-weight: 400;
   font-size: 14px;

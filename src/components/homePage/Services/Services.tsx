@@ -1,4 +1,5 @@
 import React from 'react'
+import { lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -8,10 +9,10 @@ export const Services = () => {
   ]
   return (
     <div className={styles.container}>
-      <h5>{'Our services'}</h5>
+      <h5 className={syncopate.className}>{'Our services'}</h5>
       <ul>
         {list.map(item => (
-          <li key={item}>{item}</li>
+          <li className={lato.className} key={item}>{item}</li>
         ))}
       </ul>
     </div>  
