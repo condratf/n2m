@@ -1,6 +1,6 @@
 import { FC } from 'react'
 // local
-import { ContactForm } from '@/components'
+import { ContactForm } from '@/components/shared'
 import { BottomBlock } from '@/components/ourservices'
 // styles
 import styles from './styles.module.scss'

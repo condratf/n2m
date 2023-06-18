@@ -1,7 +1,7 @@
 "use client"
 import React, { FC, PropsWithChildren } from 'react'
 // local
-import { ContactForm } from '@/components'
+import { ContactForm } from '@/components/shared'
 import { RightSideNav, RightSideNavMobile } from '@/components/policies'
 import { syncopate, useIsMobile } from '@/utils'
 // styles

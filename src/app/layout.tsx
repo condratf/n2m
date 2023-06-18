@@ -1,8 +1,8 @@
 // local
 import { Header, Footer } from '@/components/layout'
+import { BottomMobileNav } from '@/components/shared'
 // styles
 import './globals.css'
-import { BottomMobileNav } from '@/components'
 
 export const metadata = {
   title: 'Danier Tech',

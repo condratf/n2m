@@ -23,9 +23,9 @@
     align-items: flex-start;
     padding: 16px;
     gap: 16px;
-    width: 95vw;
+    width: 90%;
     margin: 0 auto;
-    left: calc(50% - 223.5px + 0.5px);
+    left: 5%;
     bottom: 115px;
     z-index: 9;
   }
@@ -91,4 +91,8 @@
       gap: 10px;
     }
   }
+}
+
+.dNone {
+  display: none !important;
 }

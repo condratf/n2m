@@ -9,9 +9,9 @@ import styles from './styles.module.scss'
 
 export const ThankYouModal: FC<ModalProps> = ({
   ...props
-}) => {
+}) => { 
   return (
-    <Modal {...props}>
+    <Modal {...props} showCloseBtn={false}>
       <div className={styles.container}>
 
         <div className={styles.image}>

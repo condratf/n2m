@@ -1,3 +1,5 @@
+@import '@/styles/variables.scss';
+
 .btn {
   display: flex;
   flex-direction: row;
@@ -11,4 +13,9 @@
   height: 56px;
   top: 265px;
   right: 333px;
+
+  @media #{$mobile} {
+    top: 126px;
+    right: 18px;
+  }
 }

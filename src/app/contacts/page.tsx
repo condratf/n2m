@@ -1,6 +1,6 @@
 import React from 'react'
 // local
-import { ContactForm } from '@/components'
+import { ContactForm } from '@/components/shared'
 import { lato, syncopate } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'

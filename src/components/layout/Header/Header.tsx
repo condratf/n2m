@@ -1,4 +1,5 @@
 "use client"
+import { FC, useContext } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
@@ -8,8 +9,9 @@ import { useIsMobile } from '@/utils'
 import { routes } from '@/routes'
 // styles
 import styles from './styles.module.scss'
+import { globals } from '@/global'
 
-export const Header = () => {
+export const Header: FC = () => {
   const { t } = useTranslation()
 
   const { isMobile } = useIsMobile()
@@ -41,7 +43,13 @@ export const Header = () => {
             ))}
           </div>
 
-          <Button className={styles.button} btnType="button" variant={'secondary'}>
+          <Button onClick={() => {
+            if (globals.currRef) {
+              globals.currRef.current?.scrollIntoView({
+                behavior: "smooth", block: "end"
+              })
+            }
+          }} className={styles.button} btnType="button" variant={'secondary'}>
             {t('Write us')}
           </Button>
         </>

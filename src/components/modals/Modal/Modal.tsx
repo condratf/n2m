@@ -7,11 +7,13 @@ import styles from './styles.module.scss'
 export type ModalProps = {
   isOpen: boolean,
   onClose: (...args: unknown[]) => void,
+  showCloseBtn?: boolean
 }
- 
+
 export const Modal: FC<PropsWithChildren<ModalProps>> = ({
   isOpen,
   onClose,
+  showCloseBtn = true,
   children
 }) => {
   return (
@@ -20,9 +22,9 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({
       {isOpen && (
         <div className="fixed inset-0 flex flex-col justify-center items-center bg-gray-900 bg-opacity-50 z-50">
           {children}
-          <button onClick={onClose} className={styles.btn}>
+          {showCloseBtn && <button onClick={onClose} className={styles.btn}>
             <CloseIcon />
-          </button>
+          </button>}
         </div>
       )}
     </>
