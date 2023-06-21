@@ -7,9 +7,9 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/shared'
 import { useIsMobile } from '@/utils'
 import { routes } from '@/routes'
+import { globals } from '@/global'
 // styles
 import styles from './styles.module.scss'
-import { globals } from '@/global'
 
 export const Header: FC = () => {
   const { t } = useTranslation()
@@ -49,7 +49,8 @@ export const Header: FC = () => {
                 behavior: "smooth", block: "end"
               })
             }
-          }} className={styles.button} btnType="button" variant={'secondary'}>
+          }}
+          className={styles.button} btnType="button" variant={'secondary'}>
             {t('Write us')}
           </Button>
         </>

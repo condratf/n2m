@@ -4,8 +4,9 @@ import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 // local
 import { Button } from '@/components/shared'
-import { lato, syncopate } from '@/utils/fonts'
 import { aboutLinks, contacts, licensesLinks, policiesLinks } from './resources'
+import { globals } from '@/global'
+import { lato, syncopate } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
 
@@ -14,24 +15,33 @@ export const Footer = () => {
 
   return (
     <div className={`${styles.footer} ${lato.className}`}>
-      
+
       <div className={styles.emailBlock}>
-        <span className={syncopate.className}>{t('support@daniertech.com')}</span>
-        <Button className={styles.button} btnType="button" variant={'secondary'}>
+        <a href='mailto:support@daniertech.com' className={syncopate.className}>{'support@daniertech.com'}</a>
+
+        <Button
+          onClick={() => {
+            if (globals.currRef) {
+              globals.currRef.current?.scrollIntoView({
+                behavior: "smooth", block: "end",
+              })
+            }
+          }}
+          className={styles.button} btnType="button" variant={'secondary'}>
           {t('Write us')}
         </Button>
       </div>
-      
+
       <div className={styles.contactsBlock}>
-        {contacts.map(({ title, number }, i) => (
+        {contacts.map(({ title, number, isPhone }, i) => (
           <div className={styles.contactsBlockItem} key={`${title}-${i}`}>
             <span>{title}</span>
-            <span>{number}</span>
+            {isPhone ? <a href={`tel:${<a>{number}</a>}`}>{number}</a> : <span>{number}</span>}
           </div>
         ))}
       </div>
 
-      
+
       <div className={styles.bottomBlock}>
         <div className={styles.bottomBlockLinks}>
           <span>{t('About company')}</span>
@@ -53,7 +63,7 @@ export const Footer = () => {
             <Link key={`${name}-${i}`} className={styles.licensesLink} href={href}>{t(name)}</Link>
           ))}
         </div>
-      </div> 
+      </div>
     </div>
   )
 }

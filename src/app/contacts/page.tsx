@@ -7,7 +7,7 @@ import styles from './styles.module.scss'
 
 export default function Contacts() {
   const list = [
-    { field: 'email adress:', value: 'support@daniertech.com', prompt: 'You can write us' },
+    { field: 'email adress:', value: 'support@daniertech.com', prompt: 'You can write us', isEmail: true },
     { field: 'Phone number:', value: '+85256474293', prompt: 'You can call us' }
   ]
   return (
@@ -18,10 +18,10 @@ export default function Contacts() {
 
         <p className={lato.className}>{'We appreciate your interest in reaching out to us. Whether you have a question, feedback, or want to explore potential collaborations, we\'re here to assist you. Our team is committed to providing exceptional customer service and building long-lasting relationships with our valued clients.'}</p>
 
-        {list.map(({ field, value, prompt }) => (
+        {list.map(({ field, value, prompt, isEmail }) => (
           <div className={styles.fieldContainer} key={field}>
             <div className={`${styles.field} ${lato.className}`}>{field}</div>
-            <div className={`${styles.value} ${syncopate.className}`}>{value}</div>
+            <a href={`${isEmail ? 'mailto' : 'tel'}:${value}`} className={`${styles.value} ${syncopate.className}`}>{value}</a>
             <div className={`${styles.prompt} ${lato.className}`}>{prompt}</div>
           </div>
         ))}

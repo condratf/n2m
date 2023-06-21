@@ -5,32 +5,39 @@ import { useTranslation } from 'react-i18next'
 // local
 import BurgerMenu from './BurgerMenu/BurgerMenu'
 import { routes } from '@/routes'
-import { classNames, lato } from '@/utils'
+import { globals } from '@/global'
 import { CloseIcon } from '@/icons'
+import { classNames, lato } from '@/utils'
 // styles
 import styles from './styles.module.scss'
- 
+
+const mainLinksBlock = [
+  { name: 'Main', href: routes.home },
+  { name: 'Services', href: routes.ourservices },
+  { name: 'Policies', href: routes.policies.termsOfUse },
+  { name: 'Contacts', href: routes.contacts },
+]
+const secondaryLinksBlock = [
+  { name: 'Terms of use', href: routes.policies.termsOfUse },
+  { name: 'Privacy policy', href: routes.policies.termsOfUse },
+  { name: 'Disclosure of risks', href: routes.policies.termsOfUse },
+  { name: 'Commissions and fees', href: routes.policies.termsOfUse },
+]
+
 export const BottomMobileNav: FC = () => {
   const { t } = useTranslation()
   const [isActiveMenu, setIsActiveMenu] = useState(false)
 
-  const mainLinksBlock = [
-    { name: 'Main', href: routes.home },
-    { name: 'Services', href: routes.ourservices },
-    { name: 'Policies', href: routes.policies.termsOfUse },
-    { name: 'Contacts', href: routes.contacts },
-  ]
-  const secondaryLinksBlock = [
-    { name: 'Terms of use', href: routes.policies.termsOfUse },
-    { name: 'Privacy policy', href: routes.policies.termsOfUse },
-    { name: 'Disclosure of risks', href: routes.policies.termsOfUse },
-    { name: 'Commissions and fees', href: routes.policies.termsOfUse },
-  ]
-
   return (
     <>
       <div className={styles.mobileNavMenu}>
-        <span>{t('Write us')}</span>
+        <span onClick={() => {
+          if (globals.currRef) {
+            globals.currRef.current?.scrollIntoView({
+              behavior: "smooth", block: "end"
+            })
+          }
+        }}>{t('Write us')}</span>
         <BurgerMenu
           className={isActiveMenu ? styles.burger : ''}
           isActive={isActiveMenu}
@@ -47,7 +54,14 @@ export const BottomMobileNav: FC = () => {
         )}
       >
         <div className={styles.slideNavHeading}>
-          <span>{t('Write Us')}</span>
+          <span onClick={() => {
+            if (globals.currRef) {
+              globals.currRef.current?.scrollIntoView({
+                behavior: "smooth", block: "end"
+              })
+            }
+            setIsActiveMenu(false)
+          }}>{t('Write Us')}</span>
           <button onClick={() => setIsActiveMenu(false)}>
             <CloseIcon />
           </button>

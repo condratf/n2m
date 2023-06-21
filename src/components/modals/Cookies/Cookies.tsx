@@ -1,15 +1,21 @@
 'use client'
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 // local
-import { classNames, lato } from '@/utils'
+import { classNames, lato, useLocalStorage } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
 export const Cookies: FC = () => {
-  const [agreed, setAgreed] = useState(false)
+  const [agreed, setAgreed] = useLocalStorage('agreedCookies', false)
+
+  const [classes, setClasses] = useState('')
+  useEffect(() => {
+    setClasses(classNames(styles.container, { [styles.dNone]: agreed }))
+  }, [agreed])
+
   return (
-    <div className={classNames(styles.container, { [styles.dNone]: agreed })}>
+    <div className={classes}>
       <div>
         <Image
           src='/assets/graphic/cactus/cactus_3.png'

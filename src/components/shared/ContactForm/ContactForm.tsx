@@ -1,13 +1,15 @@
 "use client"
-import { FC, useContext, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
 // local
 import { Button } from '../Button'
 import { ThankYouModal } from '@/components/modals'
 import { LocationMap } from '../LocationMap'
-import { FormValues } from './types'
+import { FormValues, FormValuesErrors } from './types'
 import { globals, setCurrRef } from '@/global'
-import { lato, validateEmail } from '@/utils'
+import { routes } from '@/routes'
+import { classNames, lato, validateEmail } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -15,8 +17,7 @@ export const ContactForm: FC = () => {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [agree, setAgree] = useState(false)
-  const handleCheckboxChange = () => setAgree(!agree)
-  
+
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -25,15 +26,42 @@ export const ContactForm: FC = () => {
     }
   }, [ref])
 
+  const [{emailTouched, textTouched}, setTouched] = useState({emailTouched: false, textTouched: false})
   const [{ email, text }, setFormValues] = useState<FormValues>({ email: '', text: '' })
+  const [{ errorEmail, errorText, errorAgree }, setErrors] = useState<FormValuesErrors>({ errorEmail: false, errorText: false, errorAgree: false })
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = event.target;
+    if (name === 'email') {
+      const isValid = !emailTouched ? true : validateEmail(value)
+      setErrors(st => ({ ...st, errorEmail: !isValid }))
+    }
+    if (name === 'text') {
+      const isValid = !textTouched ? true : value.length > 5
+      setErrors(st => ({ ...st, errorText: !isValid }))
+    }
     setFormValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
   };
+
+  const handleCheckboxChange = () => {
+    setAgree(v => {
+      setErrors(st => ({ ...st, errorAgree: !!v }))
+      return !v
+    })
+  }
+
   const handleSubmit = async () => {
+    if (!email || !validateEmail(email)) setErrors(st => ({ ...st, errorEmail: true }))
+    if (text.length < 5) setErrors(st => ({ ...st, errorText: true }))
+    if (!agree) setErrors(st => ({ ...st, errorAgree: true }))
+
+    if (errorEmail || errorText || !email || !text || !agree) {
+      setTouched({emailTouched: false, textTouched: false})
+      return
+    }
+
     await fetch('/sendmail.php', {
       method: 'POST',
       headers: {
@@ -42,11 +70,11 @@ export const ContactForm: FC = () => {
       },
       body: JSON.stringify({ email, text })
     })
-    .catch(err => {
-      console.log(err)
-      throw new Error(err)
-    });
-  
+      .catch(err => {
+        console.log(err)
+        throw new Error(err)
+      });
+
     setIsOpen(true)
   }
 
@@ -65,37 +93,55 @@ export const ContactForm: FC = () => {
           <input
             value={email}
             onChange={handleChange}
-            className={styles.emailInput}
+            className={classNames(styles.emailInput, { [styles.error]: errorEmail })}
             placeholder={t('Your email') || ''}
             type="email"
             name='email'
+            onBlur={(e) => {
+              setTouched(v => ({...v, emailTouched: true}))
+              handleChange(e)
+            }}
           />
+          
+          {errorEmail && <span className={styles.errorText}>{'email should be valid'}</span>}
+
           <textarea
             value={text}
             onChange={handleChange}
-            className={styles.textInput}
+            className={classNames(styles.textInput, { [styles.error]: errorText })}
             placeholder={t('Your text') || ''}
             name="text"
             cols={30} rows={7}
+            onBlur={(e) => {
+              setTouched(v => ({...v, textTouched: true}))
+              handleChange(e)
+            }}
           />
 
+          {errorText && <span className={styles.errorText}>{'text should be present'}</span>}
+
           <div>
-            <input className={styles.checkbox} type="checkbox" id="agree" onChange={handleCheckboxChange} />
-            <label className={styles.privacyLabel} htmlFor="agree">
+            <input
+              className={classNames(styles.checkbox, { [styles.error]: errorAgree })}
+              type="checkbox"
+              id="agree"
+              onChange={handleCheckboxChange}
+            />
+            <label className={classNames(styles.privacyLabel, { [styles.errorLabel]: errorAgree })} htmlFor="agree">
               {t('I have read and accept the ')}
-              <span>
+              <Link href={routes.policies.termsOfUse}>
                 {'Privacy Policy'}
-              </span>
+              </Link>
             </label>
           </div>
 
-          <Button disabled={!agree || !validateEmail(email)} onClick={() => setIsOpen(true)} btnType='button' type='button'>
+          <Button onClick={handleSubmit} btnType='button' type='button'>
             {'Send'}
           </Button>
         </form>
       </div>
 
-      <ThankYouModal isOpen={isOpen} onClose={handleSubmit} />
+      <ThankYouModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
     </div>
   )
 }
