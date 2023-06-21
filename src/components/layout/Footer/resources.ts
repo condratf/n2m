@@ -1,6 +1,6 @@
 export const contacts = [
   { title: 'Company number', number: '1205540' },
-  { title: 'Phone number:', number: '+85256474293' }
+  { title: 'Phone number:', number: '+85256474293', isPhone: true },
 ]
 
 export const aboutLinks = [

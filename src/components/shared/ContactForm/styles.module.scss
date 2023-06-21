@@ -48,6 +48,7 @@
   @media #{$mobile} {
     padding-top: 1rem;
   }
+
   h3 {
     // font-family: 'Lato';
     font-style: normal;
@@ -85,6 +86,7 @@
   padding: 16px;
   background: $white;
   border-radius: 20px;
+  outline: none;
 }
 
 .textInput {
@@ -93,6 +95,8 @@
   height: 100px;
   background: $white;
   border-radius: 20px;
+  resize: none;
+  outline: none;
 }
 
 .privacyLabel {
@@ -100,10 +104,33 @@
   color: $text-black;
   font-weight: 400;
 
-  span {
+  a {
     color: #FF7A40;
     font-weight: 700;
     cursor: pointer;
+  }
+}
+
+.error {
+  border-color: #dc182287;
+  border-width: 1px;
+  border-style: solid;
+}
+
+.errorText {
+  margin: 0;
+  margin-top: -0.8rem;
+  margin-bottom: -0.5rem;
+  padding-left: 0.5rem;
+  color: red !important;
+  font-size: 0.8rem;
+}
+
+.errorLabel {
+  color: red !important;
+
+  a {
+    color: red !important;
   }
 }
 

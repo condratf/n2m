@@ -27,7 +27,7 @@
     width: 100%;
 
     @media #{$mobile} {
-      left: calc(50% - 207px);
+      left: calc(1%);
       font-weight: 700;
       font-size: 64px;
     }
@@ -55,7 +55,7 @@
       width: 93%;
     }
 
-    li {
+    a {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -68,6 +68,15 @@
       line-height: 29px;
       /* Black */
       color: #1A1923;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: #D4FF6C;
+        box-shadow: 0px 16px 16px rgba(174, 234, 0, 0.25);
+        border-radius: 20px;
+        cursor: pointer;
+        transform: translateY(-1px);
+      }
 
       @media #{$mobile} {
         padding: 16px;
