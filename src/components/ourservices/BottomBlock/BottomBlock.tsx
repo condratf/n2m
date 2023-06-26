@@ -30,7 +30,6 @@ export const BottomBlock: FC = () => {
   const infraRef = useRef<HTMLDivElement>(null)
 
   const searchParams = useSearchParams()
-
   const section = searchParams.get('section');
 
   useEffect(() => {
@@ -47,7 +46,7 @@ export const BottomBlock: FC = () => {
     }
     refList[section as keyof typeof refList]?.()
   }, [section])
-
+ 
   return (
     <div className={styles.container}>
 

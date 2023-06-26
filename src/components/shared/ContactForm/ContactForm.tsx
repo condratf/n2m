@@ -2,10 +2,10 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTranslation } from 'react-i18next'
+import Image from 'next/image'
 // local
 import { Button } from '../Button'
 import { ThankYouModal } from '@/components/modals'
-import { LocationMap } from '../LocationMap'
 import { FormValues, FormValuesErrors } from './types'
 import { globals, setCurrRef } from '@/global'
 import { routes } from '@/routes'
@@ -81,9 +81,14 @@ export const ContactForm: FC = () => {
   return (
     <div ref={ref} className={`${styles.contactForm} ${lato.className}`}>
       <div className={styles.contactFormMap}>
-        <LocationMap />
+        <Image
+          src='/assets/map.png'
+          alt='map'
+          height={1700}
+          width={1500}
+        />
       </div>
-
+ 
       <div className={styles.contactFormContact}>
         <h3>{t('Write Us')}</h3>
         <p>

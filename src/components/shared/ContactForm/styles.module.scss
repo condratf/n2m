@@ -30,6 +30,11 @@
   border-radius: 80px;
   overflow: hidden;
 
+  img {
+    height: 604px;
+    width: 595px;
+  }
+
   @media #{$mobile} {
     min-width: unset;
     width: 100%;
@@ -103,6 +108,7 @@
   margin-left: 0.5rem;
   color: $text-black;
   font-weight: 400;
+  font-size: 18px;
 
   a {
     color: #FF7A40;
