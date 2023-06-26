@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   padding: 48px;
-  gap: 48px;
+  gap: 16px;
   background-color: $light-grey;
   border-radius: 60px;
   max-width: 1440px;
@@ -66,6 +66,7 @@
   width: 303px;
   height: 57px;
   align-self: baseline;
+  margin-bottom: 32px;
 }
 
 .contactsBlockItem {

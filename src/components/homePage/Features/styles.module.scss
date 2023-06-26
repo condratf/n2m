@@ -97,8 +97,22 @@
     flex-wrap: nowrap;
     justify-content: flex-start;
     max-width: 90vw;
+
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+}
+
+.mobileDot {
+  display: none;
+
+  @media #{$mobile} {
+    display: block;
+    width: 24px;
+    height: 8px;
+    margin: 0 auto;
+    background: #FF7A40;
+    border-radius: 8px;
   }
 }

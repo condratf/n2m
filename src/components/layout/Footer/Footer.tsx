@@ -13,6 +13,10 @@ import styles from './styles.module.scss'
 export const Footer = () => {
   const { t } = useTranslation()
 
+  const scrollToContacts = () => globals?.currRef?.current?.scrollIntoView({
+    behavior: "smooth", block: "end",
+  })
+
   return (
     <div className={`${styles.footer} ${lato.className}`}>
 
@@ -20,13 +24,7 @@ export const Footer = () => {
         <a href='mailto:support@daniertech.com' className={syncopate.className}>{'support@daniertech.com'}</a>
 
         <Button
-          onClick={() => {
-            if (globals.currRef) {
-              globals.currRef.current?.scrollIntoView({
-                behavior: "smooth", block: "end",
-              })
-            }
-          }}
+          onClick={scrollToContacts}
           className={styles.button} btnType="button" variant={'secondary'}>
           {t('Write us')}
         </Button>

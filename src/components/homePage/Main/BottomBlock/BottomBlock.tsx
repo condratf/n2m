@@ -42,7 +42,7 @@ export const BottomBlock: FC = () => {
         </div>
 
         <p>
-          {'web & desktop custom software development'}
+          {'Web, Mobile & Desktop software development'}
         </p>
       </div>
     </div>

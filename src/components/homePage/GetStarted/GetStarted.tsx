@@ -1,22 +1,19 @@
-"use client"
-import { useTranslation } from 'react-i18next'
 import Image from 'next/image'
 import { FC } from 'react'
 // locals
 import { lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
+
+const list = [
+  { img: '/assets/graphic/custom_icons/1.svg', title: 'Contact Us', text: 'Please complete the feedback form and send  it to us' },
+  { img: '/assets/graphic/custom_icons/3.svg', title: 'Get our expertise', text: 'We will get in touch with you at the earliest, discuss  all your requirements and expectations and come back with our solutions' },
+  { img: '/assets/graphic/custom_icons/2.svg', title: 'Get a cost estimation', text: 'Based on the agreed requirements, we will make an offer tailored with your budget and time costs' },
+  { img: '/assets/graphic/custom_icons/4.svg', title: 'Start of the Project ', text: 'As soon as the agreement is signed, we will allocate  a team of the  specialists  and start the work' },
+]
  
 export const GetStarted: FC = () => {
-  const { t } = useTranslation()
-  const title = t('Get Started Today')
-
-  const list = [
-    { img: '/assets/graphic/custom_icons/1.svg', title: t('Contact Us'), text: t('Fill out the contact form protected by NDA, book a calendar and schedule a Zoom Meeting with our experts.') },
-    { img: '/assets/graphic/custom_icons/2.svg', title: t('Get a Consultation'), text: t('Fill out the contact form protected by NDA, book a calendar and schedule a Zoom Meeting with our experts.') },
-    { img: '/assets/graphic/custom_icons/3.svg', title: t('Get a Cost Estimate'), text: t('Fill out the contact form protected by NDA, book a calendar and schedule a Zoom Meeting with our experts.') },
-    { img: '/assets/graphic/custom_icons/4.svg', title: t('Project Kickoff'), text: t('Fill out the contact form protected by NDA, book a calendar and schedule a Zoom Meeting with our experts.') },
-  ]
+  const title = 'Get Started Today'
 
   return (
     <div className={styles.outerContainer}>
@@ -26,7 +23,7 @@ export const GetStarted: FC = () => {
           {list.map(({ img, title, text }, i) => (
             <li className={`${styles.listItem} ${lato.className}`} key={`${i}-${title}`}>
               <Image src={img} alt={title} width={64} height={64} />
-              <h5>{i}{'. '}{title}</h5>
+              <h5>{i + 1}{'. '}{title}</h5>
               <p>{text}</p>
             </li>
           ))}

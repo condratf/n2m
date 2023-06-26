@@ -5,8 +5,8 @@ export const contacts = [
 
 export const aboutLinks = [
   { name: 'Services', href: '#' },
-  { name: 'Contacts', href: '#' },
   { name: 'Policies', href: '#' },
+  { name: 'Contacts', href: '#' },
 ]
 export const policiesLinks = [
   { name: 'Terms of use', href: '#' },

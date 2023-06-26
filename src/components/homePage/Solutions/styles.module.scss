@@ -84,7 +84,7 @@
 .choiceBlock {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 32px;
   gap: 16px;
@@ -121,6 +121,7 @@
   line-height: 29px;
   text-align: center;
   color: rgba(33, 33, 33, 0.5);
+  height: 142px;
 
   @media #{$mobile} {
     font-size: 14px;
