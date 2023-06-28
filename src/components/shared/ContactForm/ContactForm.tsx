@@ -84,8 +84,8 @@ export const ContactForm: FC = () => {
         <Image
           src='/assets/map.png'
           alt='map'
-          height={1700}
-          width={1500}
+          height={600}
+          width={600}
         />
       </div>
  
