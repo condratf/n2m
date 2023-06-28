@@ -1,6 +1,9 @@
+import { FC } from "react"
+
 type PolicyListItem = {
   title: string,
   text?: string,
+  Text?: FC,
   ul?: string[],
   ol?: string[]
 }

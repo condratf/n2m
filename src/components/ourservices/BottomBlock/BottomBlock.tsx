@@ -60,6 +60,7 @@ export const BottomBlock: FC = () => {
         <TextWithTitle
           title={'Software Development'}
           text={'Our company provides comprehensive software development services, catering to diverse needs and requirements. From concept to deployment, our team of skilled professionals ensures the delivery of high-quality, custom software solutions that align with our clients\' goals and drive business success. With expertise in various technologies and a client-centric approach, we are committed to delivering innovative and reliable software products to meet the ever-evolving demands of the market.'}
+          titlePosition='startTitle'
         />
       </div>
 

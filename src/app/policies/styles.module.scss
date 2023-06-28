@@ -2,7 +2,7 @@
 
 .mainContainer {
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 8rem auto;
   display: flex;
   justify-content: space-between;
   @media #{$mobile} {
@@ -24,7 +24,7 @@
     width: 256px;
     height: 154px;
     left: calc(50% - 256px/2);
-    top: -50px;
+    top: -70px;
     // font-family: 'Syncopate';
     font-style: normal;
     font-weight: 700;
@@ -61,5 +61,6 @@
 
 .outerContainer {
   max-width: 1200px;
-  margin: 1rem auto;
+  margin: 0 auto;
+  margin-bottom: 9rem;
 }
