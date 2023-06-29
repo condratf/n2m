@@ -47,8 +47,10 @@
   }
 
   &:nth-of-type(1) {
-    .listContainer {
-      max-width: 220px;
+    @media #{$mobile} {
+      .listContainer {
+        max-width: 220px;
+      }
     }
     &::before {
       content: '語言';
@@ -56,8 +58,10 @@
   }
 
   &:nth-of-type(2) {
-    .listContainer {
-      max-width: 250px;
+    @media #{$mobile} {
+      .listContainer {
+        max-width: 250px;
+      }
     }
     &::before {
       right: 123px;
@@ -78,7 +82,7 @@
   }
 
   &:nth-of-type(5) {
-    margin-top: -4.7rem;
+    margin-top: -9.7rem;
 
     &::before {
       content: '數據庫管理';
@@ -118,6 +122,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem; 
+  max-width: 400px;
+  @media #{$mobile} {
+    max-width: unset;
+  }
 }
 
 .listItem {
