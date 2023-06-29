@@ -12,7 +12,7 @@
 
   &::before {
     position: absolute;
-    content: '有限公司';
+    content: '我們的服務';
     left: calc(50% - 380px);
     top: -59px;
     font-style: normal;
@@ -30,6 +30,7 @@
       left: calc(1%);
       font-weight: 700;
       font-size: 64px;
+      top: -91px;
     }
   }
 
@@ -50,9 +51,12 @@
     justify-content: center;
     max-width: 827px;
     gap: 16px;
+    
 
     @media #{$mobile} {
+      gap: 8px;
       width: 93%;
+      max-width: 367px;
     }
 
     a {
@@ -84,6 +88,7 @@
         font-weight: 700;
         font-size: 18px;
         line-height: 22px;
+        border-radius: 10px;
       }
     }
   }

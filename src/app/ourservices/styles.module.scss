@@ -47,9 +47,8 @@
     z-index: -2;
 
     @media #{$mobile} {
-      // left: calc(50% - 360px/2);
+      left: unset;
       top: -50px;
-      // font-family: 'Syncopate';
       font-style: normal;
       font-weight: 700;
       font-size: 64px;

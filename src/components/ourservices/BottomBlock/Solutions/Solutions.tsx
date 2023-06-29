@@ -27,6 +27,7 @@ export const Solutions: FC = () => {
         <TextWithTitle
           title={'Development solutions'}
           text={'Our company offers tailored solutions for diverse domains, including blockchain technology, web applications, and cloud-based applications. Whether you need secure and decentralized transactions with blockchain integration, interactive and user-friendly web applications, or scalable and flexible cloud-based solutions, our team is ready to deliver innovative and customized software solutions to meet your specific needs.'}
+          textPosition='center'
         />
       </div>
 
@@ -35,6 +36,8 @@ export const Solutions: FC = () => {
           <TextWithTitle
             title={selectedTab.title}
             text={selectedTab.text}
+            titleSize='small'
+            textPosition='center'
           />
         </div>
 

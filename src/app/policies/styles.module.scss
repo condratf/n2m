@@ -5,8 +5,10 @@
   margin: 8rem auto;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 240px;
   @media #{$mobile} {
     margin: 2rem 0;
+    margin-bottom: 120px;
   }
 }
 
@@ -17,6 +19,12 @@
   gap: 64px;
   max-width: 800px;
   position: relative;
+
+  @media #{$mobile} {
+    padding: 0 10px;
+    gap: 32px;
+  }
+  
 
   &::before {
     content: '政策';
@@ -39,7 +47,7 @@
     @media #{$mobile} {
       width: 128px;
       height: 77px;
-      left: calc(50% - 50px);
+      left: 120px;
       top: -43px;
       font-style: normal;
       font-size: 64px;
@@ -55,6 +63,7 @@
     color: #212121;
     @media #{$mobile} {
       margin-bottom: 5rem;
+      font-size: 32px;
     }
   }
 }

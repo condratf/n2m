@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next'
 import { Button } from '@/components/shared'
 import { aboutLinks, contacts, licensesLinks, policiesLinks } from './resources'
 import { globals } from '@/global'
-import { lato, syncopate } from '@/utils/fonts'
+import { copyText, lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -58,7 +58,11 @@ export const Footer = () => {
         <div className={styles.bottomBlockLicenses}>
           <span>{t('Licenses')}</span>
           {licensesLinks.map(({ href, name }, i) => (
-            <Link key={`${name}-${i}`} className={styles.licensesLink} href={href}>{t(name)}</Link>
+            <Link onClick={e => {
+              e.preventDefault()
+              e.stopPropagation()
+              copyText(name)
+            }} key={`${name}-${i}`} className={styles.licensesLink} href={href}>{t(name)}</Link>
           ))}
         </div>
       </div>

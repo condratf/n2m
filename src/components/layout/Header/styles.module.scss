@@ -21,6 +21,12 @@
   img {
     min-width: 198px;
     min-height: 48px;
+    @media #{$mobile} {
+      min-width: 132px;
+      min-height: 32;
+      width: 132px;
+      height: 32;
+    }
   }
 
   @media #{$mobile} {
