@@ -16,7 +16,7 @@ export const Main: FC = () => {
       <div className={styles.weFindBlock}>
         <h1 className={syncopate.className}>{'We find the solutions'}</h1>
         <div className={`${styles.mobileBefore} ${syncopate.className}`}>
-          {'软件开发'}
+          {'軟件開發軟件'}
         </div>
         <p className={lato.className}>{'We provide innovative software development solutions to enhance your business.'}</p>
         <button
@@ -33,8 +33,8 @@ export const Main: FC = () => {
         className={styles.image}
         src='/assets/graphic/main_screen_cuphead.png'
         alt='cuphead'
-        height={540}
-        width={540}
+        height={640}
+        width={640}
       />
 
       <BottomBlock />

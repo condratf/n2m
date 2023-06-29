@@ -14,19 +14,19 @@ export const Features = () => {
     {
       title: t('Languages'),
       list: [
-        'Java', 'C#', 'C/C++', 'Objective C', 'Python', 'Swift', 'Rust', 'Scala', 'Kotlin'
+        'Java', 'C#', 'C/C++', 'Go', 'Python', 'Groovy', 'Swift', 'R', 'PHP', 'Rust', 'Scala',
       ],
     },
     {
       title: t('Mobile'),
       list: [
-        'Java', 'C#', 'C/C++', 'Objective C', 'Python', 'Swift', 'Rust', 'Scala', 'Kotlin'
+        'iOS', 'Android', 'HTML5', 'React', 'Xamarin', 'JavaScript', 'Objective C', 'Kotlin', 'Swift'
       ],
     },
     {
       title: t('Frameworks'),
       list: [
-        'Java', 'C#', 'C/C++', 'Objective C', 'Python', 'Swift', 'Rust', 'Scala', 'Kotlin'
+        'Django', 'Symfony', 'Laravel', 'Express', 'Ruby on Rails', 'ASP.NET', 'Fiber', 'CakePHP', 'Flask', 'Play'
       ],
     },
     {
@@ -38,7 +38,7 @@ export const Features = () => {
     {
       title: t('Database Management'),
       list: [
-        'Java', 'C#', 'C/C++', 'Objective C', 'Python', 'Swift', 'Rust', 'Scala', 'Kotlin'
+        'Document databases', 'Key-value stores', 'Column-oriented databases', 'Graph databases',
       ],
     },
   ]
@@ -59,6 +59,8 @@ export const Features = () => {
           />
         ))}
       </div>
+
+      <div className={styles.mobileDot} />
     </div>
   )
 }

@@ -1,17 +1,30 @@
+'use client'
 import { FC } from 'react'
+import Link from 'next/link'
+import { useSearchParams } from 'next/navigation'
 // local
 import { ContactForm } from '@/components/shared'
 import { BottomBlock } from '@/components/ourservices'
-import { lato, syncopate } from '@/utils'
+import { routes } from '@/routes'
+import { classNames, lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
 const featureList = [
-  'Software Development', 'Testing & QA', 'Application Services', 'UX/UI Design', 'IT Consulting',
-  'R&D Services', 'Data Analytics', 'Infrastructure Services', 'Cybersecurity Services'
+  { title: 'Software Development', param: 'software' },
+  { title: 'Testing & QA', param: 'testing' },
+  { title: 'Application Services', param: 'application' },
+  { title: 'UX/UI Design', param: 'ux' },
+  { title: 'IT Consulting', param: 'it' },
+  { title: 'R&D Services', param: 'rd' },
+  { title: 'Data Analytics', param: 'data' },
+  { title: 'Infrastructure Services', param: 'infra' },
+  { title: 'Cybersecurity Services', param: 'cyber' },
 ]
 
 const OurServices: FC = () => {
+  const searchParams = useSearchParams()
+  const section = searchParams.get('section')
 
   return (
     <div className={styles.container}>
@@ -20,18 +33,41 @@ const OurServices: FC = () => {
         <h1 className={syncopate.className}>{'Our services'}</h1>
         {/* mobile */}
         <p className={lato.className}>{'We create solutions that work on the result of your projects.'}</p>
-        <section>
-          {featureList.map(item => (
-            <div className={lato.className} key={item}>{item}</div>
-          ))}
-        </section>
         {/* mobile */}
         <ul>
-          {featureList.map(item => (
-            <li className={lato.className} key={item}>{item}</li>
+          {featureList.map(({ title, param }) => (
+            <Link
+              className={lato.className}
+              key={title}
+              href={{
+                pathname: routes.ourservices,
+                query: { section: param }
+              }}
+            >
+              {title}
+            </Link>
           ))}
         </ul>
       </div>
+
+      {/* mobile */}
+      <section className={styles.mobileSection}>
+        {featureList.map(({ title, param }, ix) => (
+          <Link
+            className={
+              classNames(lato.className, { [styles.isActive]: (section === param) || (!section && ix === 0) })
+            }
+            key={title}
+            href={{
+              pathname: routes.ourservices,
+              query: { section: param }
+            }}
+          >
+            {title}
+          </Link>
+        ))}
+      </section>
+      {/* mobile */}
 
       <BottomBlock />
 

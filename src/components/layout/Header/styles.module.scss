@@ -18,6 +18,11 @@
   max-height: 102px;
   z-index: 2;
 
+  img {
+    min-width: 198px;
+    min-height: 48px;
+  }
+
   @media #{$mobile} {
     display: flex;
     flex-direction: column;
@@ -56,6 +61,7 @@
   position: relative;
   color: $text-black;
   transition: 0.2s;
+  font-weight: 600;
   &:hover {
     color: rgb(255, 122, 64);
   }
@@ -83,6 +89,7 @@
 
 .button {
   min-width: 119px;
+  font-weight: 700;
 
   @media #{$mobile} {
     display: none;
