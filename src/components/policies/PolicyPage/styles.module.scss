@@ -9,7 +9,8 @@
   max-width: 800px;
 
   @media #{$mobile} {
-    padding: 2rem;;
+    padding: 2rem;
+    ;
   }
 
   h2 {
@@ -42,7 +43,7 @@
 
   h3 {
     font-style: normal;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 24px;
     line-height: 29px;
     /* Text/Black */
@@ -67,10 +68,17 @@
     }
   }
 
+  span {
+    a {
+      color: blue;
+    }
+  }
+
   ul,
   ol {
     display: flex;
     flex-direction: column;
+    margin-left: 1.5rem;
 
     li {
       font-style: normal;
@@ -79,10 +87,17 @@
       line-height: 160%;
       /* Text/Black */
       color: #212121;
+      list-style-type: disc;
 
       @media #{$mobile} {
         font-size: 14px;
       }
+    }
+  }
+
+  ol {
+    li {
+      list-style-type: decimal;
     }
   }
 }

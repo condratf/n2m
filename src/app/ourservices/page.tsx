@@ -47,7 +47,7 @@ const OurServices: FC = () => {
               {title}
             </Link>
           ))}
-        </ul>
+        </ul> 
       </div>
 
       {/* mobile */}

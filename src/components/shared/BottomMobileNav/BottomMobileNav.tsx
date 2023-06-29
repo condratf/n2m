@@ -68,7 +68,7 @@ export const BottomMobileNav: FC = () => {
         </div>
         <span>{t('About company')}</span>
         {mainLinksBlock.map(({ href, name }, i) => (
-          <Link key={`${name}-${i}`} className={styles.menuLink} href={href}>
+          <Link onClick={() => setIsActiveMenu(false)} key={`${name}-${i}`} className={styles.menuLink} href={href}>
             {t(name)}
           </Link>
         ))}
