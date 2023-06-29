@@ -10,7 +10,8 @@
 
   @media #{$mobile} {
     padding: 2rem;
-    ;
+    gap: 16px;
+    padding-top: 10px;
   }
 
   h2 {
@@ -98,6 +99,9 @@
   ol {
     li {
       list-style-type: decimal;
+      &::marker {
+        font-weight: bold;
+      }
     }
   }
 }

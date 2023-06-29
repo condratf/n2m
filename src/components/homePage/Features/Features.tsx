@@ -32,7 +32,7 @@ export const Features = () => {
     {
       title: t('Web'),
       list: [
-        'Vue', 'Saas', 'Coffee', 'Angular', 'WebGl', 'Swift', 'Rust', 'Scala', 'Kotlin'
+        'Vue', 'Saas', 'Coffee', 'Angular', 'WebGl'
       ],
     },
     {
@@ -42,7 +42,7 @@ export const Features = () => {
       ],
     },
   ]
- 
+
   return (
     <div className={styles.outerContainer}>
       <div className={styles.container}>

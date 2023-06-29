@@ -8,6 +8,10 @@
   gap: 16px;
   margin: 0 auto;
 
+  @media #{$mobile} {
+    padding: 16px;
+  }
+
   h1 {
     // font-family: 'Syncopate';
     font-style: normal;
@@ -20,6 +24,17 @@
     @media #{$mobile} {
       font-size: 18px;
       line-height: 19px;
+    }
+  }
+
+  h3 {
+    /* Text/Black */
+    color: #212121;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    @media #{$mobile} {
+      font-size: 18px;
     }
   }
 
@@ -49,4 +64,8 @@
 
 .endTitle {
   text-align: end;
+}
+
+.textCenter {
+  text-align: center;
 }

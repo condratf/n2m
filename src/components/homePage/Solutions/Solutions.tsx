@@ -3,9 +3,9 @@ import { FC, useState } from 'react'
 // local
 import { TextKeys, btnList, solutionTexts } from './assets'
 import { classNames } from '@/utils'
+import { lato, syncopate } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
-import { lato, syncopate } from '@/utils/fonts'
 
 
 export const Solutions: FC = () => {

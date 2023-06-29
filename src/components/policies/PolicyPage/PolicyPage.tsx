@@ -4,7 +4,7 @@ import { lato } from '@/utils/fonts'
 import { PolicyPageProps } from './types'
 // styles
 import styles from './styles.module.scss'
- 
+
 export const PolicyPage: FC<PolicyPageProps> = ({
   title,
   policiesList
@@ -17,7 +17,7 @@ export const PolicyPage: FC<PolicyPageProps> = ({
         <div key={title} className={styles.itemContainer}>
           <h3>{title}</h3>
           {text && (<span>{text}</span>)}
-          {Text ? <Text /> : null}
+          {Text && <Text />}
           {ul && (<ul>{ul.map((v, ix) => <li key={ix}>{v}</li>)}</ul>)}
           {ol && (<ol>{ol.map((v, ix) => <li key={ix}>{v}</li>)}</ol>)}
         </div>

@@ -13,10 +13,16 @@ const cactusesBlockItems = [
   { title: 'Application Services', img: '/assets/graphic/cactus/long_cactus_2.png', text: 'Our company offers comprehensive application development services, catering to diverse business needs. From conceptualization to deployment, we specialize in crafting customized applications that are tailored to our clients\' requirements, providing innovative solutions that drive business growth and success. With a focus on user experience, functionality, and scalability, we leverage our expertise to deliver high-quality application services that meet the evolving demands of the market.' },
   { title: 'UX/UI Design', img: '/assets/graphic/cactus/long_cactus_1.png', text: 'Our team offers professional UX/UI design services, ensuring visually stunning and intuitive user interfaces for enhanced user experiences. With a focus on user-centric design principles and meticulous attention to detail, our talented designers create compelling designs that captivate users and differentiate your software from the competition. We strive to deliver aesthetically pleasing and user-friendly designs that seamlessly blend form and function, providing a delightful user experience across various platforms and devices.' }
 ]
-const lastBlockItems = [
-  { title: 'Infrastructure Services', text: 'Our company offers comprehensive infrastructure services, providing businesses with robust and scalable IT infrastructure solutions to support their operations. From network design and implementation to cloud migration and management, our team of experts ensures that our clients have a reliable and secure infrastructure that meets their current and future needs. With a focus on efficiency and resilience, we optimize infrastructure performance, minimize downtime, and enable seamless connectivity for businesses to thrive in today\'s digital landscape.' },
-  { title: 'Cybersecurity Services', text: 'Our team of cybersecurity specialists provides cybersecurity services, ensuring the protection of our clients\' digital assets and critical information from evolving cyber threats. With expertise in risk assessment, vulnerability management, and incident response, we develop customized strategies and implement robust security measures to safeguard businesses against unauthorized access, data breaches, and other cyber attacks. Our cybersecurity services help businesses establish a strong defense posture, maintain regulatory compliance, and instill confidence in their stakeholders regarding the security of their digital infrastructure.' }
-]
+const lastBlockItems = {
+  desktop: [
+    { title: 'Infrastruct ure Services', text: 'Our company offers comprehensive infrastructure services, providing businesses with robust and scalable IT infrastructure solutions to support their operations. From network design and implementation to cloud migration and management, our team of experts ensures that our clients have a reliable and secure infrastructure that meets their current and future needs. With a focus on efficiency and resilience, we optimize infrastructure performance, minimize downtime, and enable seamless connectivity for businesses to thrive in today\'s digital landscape.' },
+    { title: 'Cybersecur ity Services', text: 'Our team of cybersecurity specialists provides cybersecurity services, ensuring the protection of our clients\' digital assets and critical information from evolving cyber threats. With expertise in risk assessment, vulnerability management, and incident response, we develop customized strategies and implement robust security measures to safeguard businesses against unauthorized access, data breaches, and other cyber attacks. Our cybersecurity services help businesses establish a strong defense posture, maintain regulatory compliance, and instill confidence in their stakeholders regarding the security of their digital infrastructure.' }
+  ],
+  mobile: [
+    { title: 'Infrastructure Services', text: 'Our company offers comprehensive infrastructure services, providing businesses with robust and scalable IT infrastructure solutions to support their operations. From network design and implementation to cloud migration and management, our team of experts ensures that our clients have a reliable and secure infrastructure that meets their current and future needs. With a focus on efficiency and resilience, we optimize infrastructure performance, minimize downtime, and enable seamless connectivity for businesses to thrive in today\'s digital landscape.' },
+    { title: 'Cybersecurity Services', text: 'Our team of cybersecurity specialists provides cybersecurity services, ensuring the protection of our clients\' digital assets and critical information from evolving cyber threats. With expertise in risk assessment, vulnerability management, and incident response, we develop customized strategies and implement robust security measures to safeguard businesses against unauthorized access, data breaches, and other cyber attacks. Our cybersecurity services help businesses establish a strong defense posture, maintain regulatory compliance, and instill confidence in their stakeholders regarding the security of their digital infrastructure.' }
+  ],
+}
 
 export const BottomBlock: FC = () => {
   const { isMobile } = useIsMobile()
@@ -46,7 +52,7 @@ export const BottomBlock: FC = () => {
     }
     refList[section as keyof typeof refList]?.()
   }, [section])
- 
+
   return (
     <div className={styles.container}>
 
@@ -62,7 +68,7 @@ export const BottomBlock: FC = () => {
           text={'Our company provides comprehensive software development services, catering to diverse needs and requirements. From concept to deployment, our team of skilled professionals ensures the delivery of high-quality, custom software solutions that align with our clients\' goals and drive business success. With expertise in various technologies and a client-centric approach, we are committed to delivering innovative and reliable software products to meet the ever-evolving demands of the market.'}
           titlePosition='startTitle'
         />
-      </div>
+      </div> 
 
       <Solutions />
 
@@ -93,6 +99,7 @@ export const BottomBlock: FC = () => {
             <TextWithTitle
               title={title}
               text={text}
+              titlePosition='startTitle'
             />
           </section>
         ))}
@@ -102,6 +109,7 @@ export const BottomBlock: FC = () => {
         <TextWithTitle
           title={'IT Consulting'}
           text={'We provide comprehensive IT consulting services, providing expert guidance and strategic insights to help businesses leverage technology for their growth and success. With our deep industry knowledge and technical expertise, we assist clients in identifying optimal IT solutions, optimizing processes, and implementing effective strategies to drive efficiency and maximize ROI. Our dedicated team of IT consultants works closely with clients to understand their unique challenges and objectives, delivering tailored recommendations and innovative solutions to propel their digital transformation journey.'}
+          titlePosition='startTitle'
         />
         <Image
           src={'/assets/graphic/cactus/cactus_2.png'}
@@ -127,13 +135,13 @@ export const BottomBlock: FC = () => {
 
       <div ref={dataRef} className={styles.data}>
         <TextWithTitle
-          title={'Data Analytics'}
+          title={'Data Analytics'} 
           text={'We offer data analytics services, helping businesses unlock valuable insights from their data to make informed decisions and drive growth. With a team of experienced data scientists and analysts, we leverage advanced analytics techniques and cutting-edge tools to analyze and interpret data, providing actionable recommendations and strategies to optimize business performance and gain a competitive edge in the market. Our data analytics services enable organizations to harness the power of data-driven decision-making, fuel innovation, and achieve measurable results.'}
         />
       </div>
 
       <div ref={infraRef} className={styles.last}>
-        {lastBlockItems.map(({ title, text }) => (
+        {lastBlockItems[isMobile ? 'mobile' : 'desktop'].map(({ title, text }) => (
           <TextWithTitle
             key={title}
             title={title}

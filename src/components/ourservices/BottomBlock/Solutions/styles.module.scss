@@ -12,20 +12,21 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 32px;
     gap: 32px;
     background: #F5F5F5;
     border-radius: 40px;
-    height: 410px;
     max-height: 410px;
 
     @media #{$mobile} {
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 1px;
+      padding: 16px;
       height: max-content;
       max-height: max-content;
+      max-width: 95vw;
     }
   }
 
@@ -62,6 +63,7 @@
         padding: 16px;
         font-size: 14px;
         line-height: 17px;
+        border-radius: 16px;
       }
     }
   }
