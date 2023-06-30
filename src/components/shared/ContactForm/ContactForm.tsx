@@ -26,7 +26,7 @@ export const ContactForm: FC = () => {
     }
   }, [ref])
 
-  const [{emailTouched, textTouched}, setTouched] = useState({emailTouched: false, textTouched: false})
+  const [{ emailTouched, textTouched }, setTouched] = useState({ emailTouched: false, textTouched: false })
   const [{ email, text }, setFormValues] = useState<FormValues>({ email: '', text: '' })
   const [{ errorEmail, errorText, errorAgree }, setErrors] = useState<FormValuesErrors>({ errorEmail: false, errorText: false, errorAgree: false })
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -51,14 +51,23 @@ export const ContactForm: FC = () => {
       return !v
     })
   }
- 
+
   const handleSubmit = async () => {
-    if (!email || !validateEmail(email)) setErrors(st => ({ ...st, errorEmail: true }))
-    if (text.length < 5) setErrors(st => ({ ...st, errorText: true }))
-    if (!agree) setErrors(st => ({ ...st, errorAgree: true }))
+    if (!email || !validateEmail(email)) {
+      setErrors(st => ({ ...st, errorEmail: true }))
+      return
+    }
+    if (text.length < 5) {
+      setErrors(st => ({ ...st, errorText: true }))
+      return
+    }
+    if (!agree) {
+      setErrors(st => ({ ...st, errorAgree: true }))
+      return
+    }
 
     if (errorEmail || errorText || !email || !text || !agree) {
-      setTouched({emailTouched: false, textTouched: false})
+      setTouched({ emailTouched: false, textTouched: false })
       return
     }
 
@@ -88,7 +97,7 @@ export const ContactForm: FC = () => {
           width={600}
         />
       </div>
- 
+
       <div className={styles.contactFormContact}>
         <h3>{t('Write Us')}</h3>
         <p>
@@ -103,12 +112,13 @@ export const ContactForm: FC = () => {
             type="email"
             name='email'
             onBlur={(e) => {
-              setTouched(v => ({...v, emailTouched: true}))
+              setTouched(v => ({ ...v, emailTouched: true }))
               handleChange(e)
             }}
           />
-          
+
           {errorEmail && <span className={styles.errorText}>{'email should be valid'}</span>}
+
 
           <textarea
             value={text}
@@ -116,14 +126,15 @@ export const ContactForm: FC = () => {
             className={classNames(styles.textInput, { [styles.error]: errorText })}
             placeholder={t('Your text') || ''}
             name="text"
-            maxLength={400}
+            maxLength={300}
             cols={30} rows={7}
             onBlur={(e) => {
-              setTouched(v => ({...v, textTouched: true}))
+              setTouched(v => ({ ...v, textTouched: true }))
               handleChange(e)
             }}
+            style={{}}
           />
-
+          <div className={styles.textCounter}>{'300 - '}{text.length}</div>
           {errorText && <span className={styles.errorText}>{'text should be present'}</span>}
 
           <div className={styles.privacyBlock}>
