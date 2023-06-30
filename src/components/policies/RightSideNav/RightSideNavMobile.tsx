@@ -13,7 +13,7 @@ const policiesList = [
   { title: 'Privacy policy', href: routes.policies.privacyPolicy },
   { title: 'Disclosure of risks', href: routes.policies.disclosureOfRisks },
   { title: 'Commissions and fees', href: routes.policies.commissionsAndFees },
-]
+] 
 export const RightSideNavMobile: FC = () => {
   const [scrollPosition, setScrollPosition] = useState(0)
   const pathname = usePathname()
@@ -22,8 +22,7 @@ export const RightSideNavMobile: FC = () => {
     const position = window?.scrollY
     setScrollPosition(position)
   }, 250)
-  
-
+ 
   useEffect(() => {
     window?.addEventListener('scroll', handleScroll)
     return () => {

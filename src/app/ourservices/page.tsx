@@ -1,12 +1,12 @@
 'use client'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 // local
 import { ContactForm } from '@/components/shared'
 import { BottomBlock } from '@/components/ourservices'
 import { routes } from '@/routes'
-import { classNames, lato, syncopate } from '@/utils'
+import { classNames, lato, syncopate, throttle } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -25,6 +25,20 @@ const featureList = [
 const OurServices: FC = () => {
   const searchParams = useSearchParams()
   const section = searchParams.get('section')
+
+  const [scrollPosition, setScrollPosition] = useState(0)
+
+  const handleScroll = throttle(() => {
+    const position = window?.scrollY
+    setScrollPosition(position)
+  }, 250)
+ 
+  useEffect(() => {
+    window?.addEventListener('scroll', handleScroll)
+    return () => {
+      window?.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
 
   return (
     <div className={styles.container}>
@@ -47,11 +61,11 @@ const OurServices: FC = () => {
               {title}
             </Link>
           ))}
-        </ul> 
+        </ul>
       </div>
 
       {/* mobile */}
-      <section className={styles.mobileSection}>
+      <section className={`${styles.mobileSection} ${lato.className} ${scrollPosition > 70 ? styles.containerMobileFixed : ''}`}>
         {featureList.map(({ title, param }, ix) => (
           <Link
             className={
@@ -66,7 +80,7 @@ const OurServices: FC = () => {
             {title}
           </Link>
         ))}
-      </section>
+      </section> 
       {/* mobile */}
 
       <BottomBlock />

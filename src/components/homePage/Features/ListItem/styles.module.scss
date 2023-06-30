@@ -90,6 +90,9 @@
 
     .listContainer {
       max-width: 469px;
+      @media #{$mobile} {
+        max-width: 290px;
+      }
     }
 
     @media #{$mobile} {

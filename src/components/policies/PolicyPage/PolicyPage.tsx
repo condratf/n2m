@@ -14,12 +14,12 @@ export const PolicyPage: FC<PolicyPageProps> = ({
       <h2 >{title}</h2>
 
       {policiesList.map(({title, text, ul, ol, Text}) => (
-        <div key={title} className={styles.itemContainer}>
+        <div key={`${title}-${Date.now().toString()}-${Math.random()}`} className={styles.itemContainer}>
           <h3>{title}</h3>
           {text && (<span>{text}</span>)}
           {Text && <Text />}
-          {ul && (<ul>{ul.map((v, ix) => <li key={ix}>{v}</li>)}</ul>)}
-          {ol && (<ol>{ol.map((v, ix) => <li key={ix}>{v}</li>)}</ol>)}
+          {ul && (<ul>{ul.map((v, ix) => <li key={`${ix}-${Date.now().toString()}-${Math.random()}`}>{v}</li>)}</ul>)}
+          {ol && (<ol>{ol.map((v, ix) => <li key={`${ix}-${Date.now().toString()}-${Math.random()}`}>{v}</li>)}</ol>)}
         </div>
       ))}
     </div>
