@@ -2,6 +2,7 @@
 import { ContactForm } from '@/components/shared'
 import {
   Features,
+  FeaturesMobile,
   GetStarted,
   Services,
   Solutions,
@@ -24,6 +25,8 @@ export default function Home() {
       <Services />
     
       <Features />
+
+      <FeaturesMobile />
 
       <Solutions />
 
