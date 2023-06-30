@@ -19,9 +19,9 @@ const mainLinksBlock = [
 ]
 const secondaryLinksBlock = [
   { name: 'Terms of use', href: routes.policies.termsOfUse },
-  { name: 'Privacy policy', href: routes.policies.termsOfUse },
-  { name: 'Disclosure of risks', href: routes.policies.termsOfUse },
-  { name: 'Commissions and fees', href: routes.policies.termsOfUse },
+  { name: 'Privacy policy', href: routes.policies.privacyPolicy },
+  { name: 'Disclosure of risks', href: routes.policies.disclosureOfRisks },
+  { name: 'Commissions and fees', href: routes.policies.commissionsAndFees },
 ]
 
 export const BottomMobileNav: FC = () => {
@@ -71,11 +71,11 @@ export const BottomMobileNav: FC = () => {
           <Link onClick={() => setIsActiveMenu(false)} key={`${name}-${i}`} className={styles.menuLink} href={href}>
             {t(name)}
           </Link>
-        ))}
+        ))} 
 
         <span>{t('Policies')}</span>
         {secondaryLinksBlock.map(({ href, name }, i) => (
-          <Link key={`${name}-${i}`} className={styles.menuLink} href={href}>
+          <Link onClick={() => setIsActiveMenu(false)} key={`${name}-${i}`} className={styles.menuLink} href={href}>
             {t(name)}
           </Link>
         ))}
