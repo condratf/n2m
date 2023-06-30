@@ -41,15 +41,15 @@ export const RightSideNavMobile: FC = () => {
       'privacy': privacyRef,
       'disclosure': disclosureRef,
       'commissions': commissionsRef,
-
     } as Record<string, RefObject<HTMLAnchorElement>>
-      const elem = refs[pathname]
+      const key = Object.keys(refs).filter(key => pathname.toLowerCase().includes(key))[0]
+      const elem = refs[key]
       //@ts-ignore
-      elem?.current?.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' })
+      elem?.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
   }, [pathname])
 
   const refs = [
-    termsRef,
+    termsRef, 
     privacyRef,
     disclosureRef,
     commissionsRef,
