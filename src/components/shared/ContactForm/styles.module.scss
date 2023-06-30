@@ -57,7 +57,7 @@
   gap: 16px;
 
   @media #{$mobile} {
-    padding: 1.5rem;
+    padding: 16px;
   }
 
   h3 {
@@ -67,6 +67,9 @@
     font-size: 32px;
     line-height: 38px;
     color: $black;
+    @media #{$mobile} {
+      font-size: 24px;
+    }
   }
 
   p {
@@ -76,6 +79,9 @@
     font-size: 18px;
     line-height: 29px;
     color: $text-soft-black;
+    @media #{$mobile} {
+      font-size: 14px;
+    }
   }
 
   form {
@@ -110,6 +116,12 @@
   outline: none;
 }
 
+.privacyBlock{
+  @media #{$mobile} {
+    display: flex;
+    align-items: center;
+  }
+}
 .privacyLabel {
   margin-left: 0.5rem;
   color: $text-black;

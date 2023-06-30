@@ -51,7 +51,7 @@ export const ContactForm: FC = () => {
       return !v
     })
   }
-
+ 
   const handleSubmit = async () => {
     if (!email || !validateEmail(email)) setErrors(st => ({ ...st, errorEmail: true }))
     if (text.length < 5) setErrors(st => ({ ...st, errorText: true }))
@@ -116,6 +116,7 @@ export const ContactForm: FC = () => {
             className={classNames(styles.textInput, { [styles.error]: errorText })}
             placeholder={t('Your text') || ''}
             name="text"
+            maxLength={400}
             cols={30} rows={7}
             onBlur={(e) => {
               setTouched(v => ({...v, textTouched: true}))
@@ -125,7 +126,7 @@ export const ContactForm: FC = () => {
 
           {errorText && <span className={styles.errorText}>{'text should be present'}</span>}
 
-          <div>
+          <div className={styles.privacyBlock}>
             <input
               className={classNames(styles.checkbox, { [styles.error]: errorAgree })}
               type="checkbox"
@@ -134,7 +135,7 @@ export const ContactForm: FC = () => {
             />
             <label className={classNames(styles.privacyLabel, { [styles.errorLabel]: errorAgree })} htmlFor="agree">
               {t('I have read and accept the ')}
-              <Link href={routes.policies.termsOfUse}>
+              <Link href={routes.policies.privacyPolicy}>
                 {'Privacy Policy'}
               </Link>
             </label>

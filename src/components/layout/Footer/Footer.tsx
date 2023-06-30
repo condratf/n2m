@@ -34,7 +34,7 @@ export const Footer = () => {
         {contacts.map(({ title, number, isPhone }, i) => (
           <div className={styles.contactsBlockItem} key={`${title}-${i}`}>
             <span>{title}</span>
-            {isPhone ? <a href={`tel:${<a>{number}</a>}`}>{number}</a> : <span>{number}</span>}
+            {isPhone ? <a href={`tel:${number}`}>{number}</a> : <span>{number}</span>}
           </div>
         ))}
       </div>
