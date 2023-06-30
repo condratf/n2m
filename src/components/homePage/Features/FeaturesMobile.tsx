@@ -40,6 +40,7 @@ export const FeaturesMobile: FC = () => {
     setIsScrolling(true)
     const refList = [langRef, mobileRef, frameRef, webRef, dataRef]
     const elem = refList[i]
+    //@ts-ignore
     elem?.current?.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'start' })
     setTimeout(() => setIsScrolling(false),500)
   }, [i])
