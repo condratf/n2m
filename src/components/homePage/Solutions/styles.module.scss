@@ -94,7 +94,7 @@
   border-radius: 40px;
 
   @media #{$mobile} {
-    height: 455px;
+    height: max-content;
     width: 93%;
     padding: 17px;
   }
