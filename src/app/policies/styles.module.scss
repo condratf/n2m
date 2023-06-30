@@ -29,7 +29,7 @@
   &::before {
     content: '政策';
     position: absolute;
-    width: 256px;
+    width: 300px;
     height: 154px;
     left: calc(50% - 256px/2);
     top: -70px;
@@ -45,7 +45,7 @@
     z-index: -2;
 
     @media #{$mobile} {
-      width: 128px;
+      width: 131px;
       height: 77px;
       left: 120px;
       top: -43px;
