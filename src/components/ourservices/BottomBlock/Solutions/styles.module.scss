@@ -63,7 +63,7 @@
         padding: 16px;
         font-size: 14px;
         line-height: 17px;
-        border-radius: 16px;
+        border-radius: 10px;
       }
     }
   }
@@ -83,8 +83,17 @@
   max-width: 800px;
   padding: 0px;
   margin: 0 auto;
+
 }
 
-.mw552 {
+.textTitle {
   max-width: 552px;
+
+  div {
+    p {
+      @media #{$mobile} {
+        font-size: 14px;
+      }
+    }
+  }
 }

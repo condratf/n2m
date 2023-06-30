@@ -6,9 +6,9 @@ export const contacts = [
 ]
 
 export const aboutLinks = [
-  { name: 'Services', href: '#' },
-  { name: 'Policies', href: '#' },
-  { name: 'Contacts', href: '#' },
+  { name: 'Services', href: routes.ourservices },
+  { name: 'Policies', href: routes.policies.termsOfUse },
+  { name: 'Contacts', href: routes.contacts },
 ]
 export const policiesLinks = [
   { name: 'Terms of use', href: routes.policies.termsOfUse },

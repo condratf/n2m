@@ -1,5 +1,5 @@
 "use client"
-import { FC, useEffect, useState } from 'react'
+import { FC, RefObject, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 // local
@@ -30,10 +30,35 @@ export const RightSideNavMobile: FC = () => {
     }
   }, [handleScroll])
 
+  const termsRef = useRef<HTMLAnchorElement>(null)
+  const privacyRef = useRef<HTMLAnchorElement>(null)
+  const disclosureRef = useRef<HTMLAnchorElement>(null)
+  const commissionsRef = useRef<HTMLAnchorElement>(null)
+
+  useEffect(() => {
+    const refs = {
+      'terms': termsRef,
+      'privacy': privacyRef,
+      'disclosure': disclosureRef,
+      'commissions': commissionsRef,
+
+    } as Record<string, RefObject<HTMLAnchorElement>>
+      const elem = refs[pathname]
+      //@ts-ignore
+      elem?.current?.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' })
+  }, [pathname])
+
+  const refs = [
+    termsRef,
+    privacyRef,
+    disclosureRef,
+    commissionsRef,
+  ] 
+
   return (
     <div className={`${styles.containerMobile} ${lato.className} ${scrollPosition > 70 ? styles.containerMobileFixed : ''}`}>
       {policiesList.map(({ title, href }, i) => (
-        <Link className={pathname.includes(href) && styles.isActiveLink || ''} href={href} key={title}>{title}</Link>
+        <Link ref={refs[i]} className={pathname.includes(href) && styles.isActiveLink || ''} href={href} key={title}>{title}</Link>
       ))}
     </div>
   )

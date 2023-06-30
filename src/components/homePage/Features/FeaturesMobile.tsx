@@ -49,9 +49,9 @@ export const FeaturesMobile: FC = () => {
     if (!isScrolling) {
       if (scrollPosition < 90) setI(0)
       if (scrollPosition > 90 && scrollPosition < 500) setI(1)
-      if (scrollPosition > 500 && scrollPosition < 1000) setI(2)
-      if (scrollPosition > 1000 && scrollPosition < 1500) setI(3)
-      if (scrollPosition > 1500) setI(4)
+      if (scrollPosition > 500 && scrollPosition < 900) setI(2)
+      if (scrollPosition > 900 && scrollPosition < 1100) setI(3)
+      if (scrollPosition > 1100) setI(4)
     }
   }, [scrollPosition, isScrolling])
 
