@@ -11,7 +11,7 @@ const list = [
   { img: '/assets/graphic/custom_icons/2.svg', title: 'Get a cost estimation', text: 'Based on the agreed requirements, we will make an offer tailored with your budget and time costs' },
   { img: '/assets/graphic/custom_icons/4.svg', title: 'Start of the Project ', text: 'As soon as the agreement is signed, we will allocate  a team of the  specialists  and start the work' },
 ]
- 
+  
 export const GetStarted: FC = () => {
   const title = 'Get Started Today'
 

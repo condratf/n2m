@@ -35,13 +35,12 @@
     height: unset;
     flex-direction: column;
     align-items: flex-start;
-    gap: 32px;
+    gap: 16px;
   }
 
   a {
     width: 628px;
     height: 33px;
-    // font-family: 'Syncopate';
     font-style: normal;
     font-weight: 700;
     font-size: 32px;
@@ -54,6 +53,11 @@
       line-height: 15px;
       text-align: center;
     }
+  }
+
+  button {
+    font-size: 18px;
+    font-weight: 700;
   }
 }
 
@@ -87,7 +91,8 @@
     color: $text-soft-black;
   }
 
-  span:nth-of-type(2), a {
+  span:nth-of-type(2),
+  a {
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -101,6 +106,7 @@
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
+
   @media #{$mobile} {
     display: flex;
     flex-direction: column;
@@ -142,6 +148,7 @@
 
 .button {
   min-width: 119px;
+
   @media #{$mobile} {
     width: 100% !important;
     height: 70px;
@@ -157,10 +164,15 @@
   overflow: hidden;
 }
 
-.licensesLink { 
+.licensesLink {
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   color: $text-black;
+
+  @media #{$mobile} {
+    color: #212121;
+    font-size: 14px;
+  }
 }
