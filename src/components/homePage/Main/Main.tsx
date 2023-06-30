@@ -39,7 +39,6 @@ export const Main: FC = () => {
 
       <BottomBlock />
 
-      <Cookies />
     </div>
   )
 }

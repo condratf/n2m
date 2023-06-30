@@ -1,6 +1,7 @@
 // local
 import { Header, Footer } from '@/components/layout'
 import { BottomMobileNav } from '@/components/shared'
+import { Cookies } from '@/components/modals'
 // styles
 import './globals.css'
 
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
+        <Cookies />
         <Header />
         {children}
         <BottomMobileNav />
