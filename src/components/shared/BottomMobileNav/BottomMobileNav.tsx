@@ -34,7 +34,7 @@ export const BottomMobileNav: FC = () => {
         <span onClick={() => {
           if (globals.currRef) {
             globals.currRef.current?.scrollIntoView({
-              behavior: "smooth", block: "end"
+              behavior: "smooth", block: 'nearest', inline: 'center' 
             })
           }
         }}>{t('Write us')}</span>
@@ -57,7 +57,7 @@ export const BottomMobileNav: FC = () => {
           <span onClick={() => {
             if (globals.currRef) {
               globals.currRef.current?.scrollIntoView({
-                behavior: "smooth", block: "end"
+                behavior: "smooth", block: 'nearest', inline: 'center' 
               })
             }
             setIsActiveMenu(false)

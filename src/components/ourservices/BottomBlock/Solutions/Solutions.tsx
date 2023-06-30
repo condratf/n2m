@@ -20,7 +20,7 @@ export const Solutions: FC = () => {
   const [selectedTab, setSelectedTab] = useState(solutionsTabList['High Load System'])
 
   const handleTabClick = (title: string) => setSelectedTab(solutionsTabList[title as keyof typeof solutionsTabList])
-
+ 
   return (
     <div className={styles.solutions}>
       <div className={styles.data}>
@@ -32,7 +32,7 @@ export const Solutions: FC = () => {
       </div>
 
       <section>
-        <div className={styles.mw552}>
+        <div className={styles.textTitle}>
           <TextWithTitle
             title={selectedTab.title}
             text={selectedTab.text}
