@@ -1,11 +1,10 @@
 'use client'
-import { useSearchParams } from 'next/navigation'
-import { FC, useEffect, useRef } from 'react'
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Image from 'next/image'
 // local
 import { TextWithTitle } from '@/components/shared'
 import { Solutions } from './Solutions'
-import { useIsMobile } from '@/utils'
+import { throttle, useIsMobile, usePrevious } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -24,8 +23,16 @@ const lastBlockItems = {
   ],
 }
 
-export const BottomBlock: FC = () => {
+export type SectionKeys = 'software' | 'testing' | 'application' | 'ux' | 'it' | 'rd' | 'data' | 'infra' | 'cyber'
+
+export const BottomBlock: FC<{
+  activeItemIndex: number,
+  setActiveTab: (i: number) => void,
+}> = ({
+  activeItemIndex, setActiveTab
+}) => {
   const { isMobile } = useIsMobile()
+  const prevActiveItemIndex = usePrevious(activeItemIndex)
 
   const softRef = useRef<HTMLDivElement>(null)
   const testRef = useRef<HTMLDivElement>(null)
@@ -35,26 +42,54 @@ export const BottomBlock: FC = () => {
   const dataRef = useRef<HTMLDivElement>(null)
   const infraRef = useRef<HTMLDivElement>(null)
 
-  const searchParams = useSearchParams()
-  const section = searchParams.get('section');
+  const [isScrolling, setIsScrolling] = useState(false)
+  
+  const refList = useMemo(() => [
+    softRef,
+    testRef,
+    appRef,
+    appRef,
+    itRef,
+    rdRef,
+    dataRef,
+    infraRef,
+    infraRef
+  ], [])
 
   useEffect(() => {
-    const refList = {
-      'software': () => softRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'testing': () => testRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'application': () => appRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'ux': () => appRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'it': () => itRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'rd': () => rdRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'data': () => dataRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'infra': () => infraRef.current?.scrollIntoView({ behavior: "smooth", block: "end" }),
-      'cyber': () => infraRef.current?.scrollIntoView({ behavior: "smooth", block: "end" })
+    if (!isScrolling && (prevActiveItemIndex !== activeItemIndex))
+      {
+        setIsScrolling(true)
+        refList[activeItemIndex]?.current?.scrollIntoView({ behavior: "smooth", block: "end" })
+        setTimeout(() => setIsScrolling(false), 300);
+      }
+  }, [prevActiveItemIndex, activeItemIndex, isScrolling, refList])
+
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const handleScrollInit = useCallback(() => {
+    if (isMobile) {
+      setIsScrolling(true)
+      const position = window?.scrollY
+      const ix = refList.findIndex(el => el.current && (position >= el.current?.offsetTop - 70) && (position <= el.current?.offsetTop + 90))
+      if (ix !== -1 && activeItemIndex !== ix)  {
+        setActiveTab(ix)
+      }
+      setTimeout(() => setIsScrolling(false), 100)
     }
-    refList[section as keyof typeof refList]?.()
-  }, [section])
+  }, [activeItemIndex, isMobile, refList, setActiveTab])
+
+  const handleScroll = throttle(handleScrollInit, 150)
+
+  useEffect(() => {
+    window?.addEventListener('scroll', handleScroll)
+    return () => {
+      window?.removeEventListener('scroll', handleScroll)
+    }
+  }, [handleScroll])
 
   return (
-    <div className={styles.container}>
+    <div ref={containerRef} className={styles.container}>
 
       <div ref={softRef} className={styles.consulting}>
         <Image
@@ -68,7 +103,7 @@ export const BottomBlock: FC = () => {
           text={'Our company provides comprehensive software development services, catering to diverse needs and requirements. From concept to deployment, our team of skilled professionals ensures the delivery of high-quality, custom software solutions that align with our clients\' goals and drive business success. With expertise in various technologies and a client-centric approach, we are committed to delivering innovative and reliable software products to meet the ever-evolving demands of the market.'}
           titlePosition='startTitle'
         />
-      </div> 
+      </div>
 
       <Solutions />
 
@@ -135,7 +170,7 @@ export const BottomBlock: FC = () => {
 
       <div ref={dataRef} className={styles.data}>
         <TextWithTitle
-          title={'Data Analytics'} 
+          title={'Data Analytics'}
           text={'We offer data analytics services, helping businesses unlock valuable insights from their data to make informed decisions and drive growth. With a team of experienced data scientists and analysts, we leverage advanced analytics techniques and cutting-edge tools to analyze and interpret data, providing actionable recommendations and strategies to optimize business performance and gain a competitive edge in the market. Our data analytics services enable organizations to harness the power of data-driven decision-making, fuel innovation, and achieve measurable results.'}
         />
       </div>
