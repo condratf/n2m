@@ -24,6 +24,7 @@ export const NavigationTabs: FC<NavigationTabsProps> = ({
   const containerRef = useRef<HTMLUListElement>(null)
 
   useEffect(() => {
+    //@ts-ignore
     containerRef?.current?.scrollTo({ left: activeTab * 80, behavior: 'instant' })
   }, [activeTab])
 
