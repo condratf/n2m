@@ -1,15 +1,23 @@
 'use client'
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 // local
 import { BottomBlock } from './BottomBlock'
-import { Cookies } from '@/components/modals'
 import { globals } from '@/global'
+import { classNames as cn } from '@/utils'
 import { lato, syncopate } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
 
 export const Main: FC = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true)
+    }, 1)
+
+    return () => clearTimeout(timer)
+  }, [])
   return (
     <div className={styles.container}>
       <div className={styles.background} />
@@ -30,7 +38,7 @@ export const Main: FC = () => {
           className={lato.className}>{'Get Started'}</button>
       </div>
       <Image
-        className={styles.image}
+        className={cn(styles.image, { [styles.visible]: isVisible })}
         src='/assets/graphic/main_screen_cuphead.png'
         alt='cuphead'
         height={640}

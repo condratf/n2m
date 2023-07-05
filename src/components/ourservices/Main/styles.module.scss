@@ -1,46 +1,80 @@
 @import '@/styles/variables.scss';
 
-.container {
+.main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 0px;
   gap: 32px;
-  max-width: 1200px;
   position: relative;
+  max-width: 1200px;
+
+  @media #{$mobile} {
+    gap: 16px;
+    max-width: 97vw;
+    margin: 0 auto;
+  }
 
   &::before {
-    position: absolute;
     content: '我們的服務';
+    white-space: nowrap;
+    position: absolute;
+    width: 512px;
+    height: 154px;
+    left: calc(25%);
     top: -59px;
+    // font-family: 'Syncopate';
     font-style: normal;
     font-weight: 700;
     font-size: 128px;
-    line-height: 154px;
+    line-height: 120%;
     text-align: center;
     text-transform: uppercase;
     /* Accent/Cian */
     color: #84FFFF;
     z-index: -2;
-    width: 100%;
-    text-align: center;
 
     @media #{$mobile} {
-      left: calc(1%);
+      left: unset;
+      top: -50px;
+      font-style: normal;
       font-weight: 700;
       font-size: 64px;
-      top: -91px;
+      line-height: 120%;
     }
   }
 
-  h5 {
+  h1 {
+    // font-family: 'Syncopate';
     font-style: normal;
     font-weight: 700;
-    font-size: 24px;
-    line-height: 25px;
+    font-size: 48px;
+    line-height: 50px;
     text-align: center;
+    /* Black */
     color: #1A1923;
+
+    @media #{$mobile} {
+      font-size: 32px;
+      line-height: 33px;
+    }
+  }
+
+  p {
+    display: none;
+
+    @media #{$mobile} {
+      // font-family: 'Lato';
+      max-width: 320px;
+      display: block;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 160%;
+      text-align: center;
+      color: rgba(33, 33, 33, 0.5);
+    }
   }
 
   ul {
@@ -49,30 +83,34 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    max-width: 827px;
+    padding: 0px;
     gap: 16px;
-    
+    max-width: 830px;
 
     @media #{$mobile} {
-      gap: 8px;
-      width: 93%;
-      max-width: 367px;
+      display: none;
     }
 
     a {
       display: flex;
-      flex-direction: row;
+      justify-content: center;
       align-items: center;
       padding: 24px;
-      // Accent/Phosphor
+      gap: 10px;
       background: #D4FF6C;
       border-radius: 20px;
+      cursor: pointer;
       font-weight: 700;
       font-size: 24px;
       line-height: 29px;
-      /* Black */
       color: #1A1923;
       transition: all 0.2s ease-in-out;
+
+      @media #{$mobile} {
+        padding: 16px;
+        font-size: 14px;
+        line-height: 17px;
+      }
 
       &:hover {
         background: #D4FF6C;
@@ -80,15 +118,6 @@
         border-radius: 20px;
         cursor: pointer;
         transform: translateY(-1px);
-      }
-
-      @media #{$mobile} {
-        padding: 16px;
-        gap: 10px;
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 22px;
-        border-radius: 10px;
       }
     }
   }

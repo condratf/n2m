@@ -71,18 +71,19 @@ export const ContactForm: FC = () => {
       return
     }
 
-    await fetch('/sendmail.php', {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, text })
-    })
-      .catch(err => {
-        console.log(err)
-        throw new Error(err)
-      });
+    await fetch('/sendmail.php',
+      {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, text })
+      }
+    ).catch(err => {
+      console.log(err)
+      throw new Error(err)
+    });
 
     setIsOpen(true)
   }
@@ -118,7 +119,6 @@ export const ContactForm: FC = () => {
           />
 
           {errorEmail && <span className={styles.errorText}>{'email should be valid'}</span>}
-
 
           <textarea
             value={text}

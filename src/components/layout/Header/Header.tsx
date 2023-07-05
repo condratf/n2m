@@ -15,9 +15,8 @@ const links = [
   { name: 'Contacts', href: routes.contacts },
   { name: 'Policies', href: routes.policies.termsOfUse },
 ]
- 
+
 export const Header: FC = () => {
-  const { isMobile } = useIsMobile()
 
   const scrollToContacts = () => globals?.currRef?.current?.scrollIntoView({
     behavior: "smooth", block: "end"
@@ -34,21 +33,17 @@ export const Header: FC = () => {
         />
       </Link>
 
-      {!isMobile && (
-        <>
-          <div className={styles.navigation}>
-            {links.map((item, i) => (
-              <button className={styles.link} key={item.name}>
-                <Link className={lato.className} href={item.href}>{item.name}</Link>
-              </button>
-            ))}
-          </div>
+      <div className={styles.navigation}>
+        {links.map((item, i) => (
+          <button className={styles.link} key={item.name}>
+            <Link className={lato.className} href={item.href}>{item.name}</Link>
+          </button>
+        ))}
+      </div>
 
-          <Button onClick={scrollToContacts} className={styles.button} btnType="button" variant={'secondary'}>
-            {'Write us'}
-          </Button>
-        </>
-      )}
+      <Button onClick={scrollToContacts} className={styles.button} btnType="button" variant={'secondary'}>
+        {'Write us'}
+      </Button>
     </div>
   )
 }

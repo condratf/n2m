@@ -71,7 +71,7 @@ export const BottomMobileNav: FC = () => {
           <Link onClick={() => setIsActiveMenu(false)} key={`${name}-${i}`} className={styles.menuLink} href={href}>
             {t(name)}
           </Link>
-        ))} 
+        ))}
 
         <span>{t('Policies')}</span>
         {secondaryLinksBlock.map(({ href, name }, i) => (

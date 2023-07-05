@@ -16,6 +16,7 @@
   box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.05);
   border-radius: 40px;
   z-index: 5;
+  opacity: 0;
 
   @media #{$mobile} {
     flex-direction: column;
@@ -95,4 +96,8 @@
 
 .dNone {
   display: none !important;
+}
+
+.o1 {
+  opacity: 1;
 }
