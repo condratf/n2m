@@ -11,11 +11,11 @@ export const Cookies: FC = () => {
 
   const [classes, setClasses] = useState('')
   useEffect(() => {
-    setClasses(classNames(styles.container, { [styles.dNone]: agreed }))
+    setClasses(classNames({ [styles.dNone]: agreed, [styles.o1]: !agreed }))
   }, [agreed])
 
   return (
-    <div className={classes}>
+    <div className={`${styles.container} ${classes}`}>
       <div>
         <Image
           src='/assets/graphic/cactus/cactus_3.png'

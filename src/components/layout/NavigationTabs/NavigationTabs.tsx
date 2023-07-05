@@ -13,53 +13,38 @@ import styles from './styles.module.scss'
 export type NavigationTabsProps = {
   list: { title: string, param: string }[],
   onItemClick: <T extends string = string>(item: T) => unknown,
-  activeTab: number
+  activeTab: number,
 }
 
 export const NavigationTabs: FC<NavigationTabsProps> = ({
   list,
   onItemClick,
-  activeTab
+  activeTab,
 }) => {
-  const [scrollPosition, setScrollPosition] = useState(0)
-  const [isScrolling, setIsScrolling] = useState(false)
+  const containerRef = useRef<HTMLUListElement>(null)
+
+  useEffect(() => {
+    containerRef?.current?.scrollTo({ left: activeTab * 80, behavior: 'instant' })
+  }, [activeTab])
+
+  const [position, setPosition] = useState(0)
 
   const handleScroll = throttle(() => {
-    const position = window?.scrollY
-    setScrollPosition(position)
+    const viewportOffset = containerRef?.current?.getBoundingClientRect();
+    if (viewportOffset) { setPosition(viewportOffset.top) }
   }, 250)
 
   useEffect(() => {
     window?.addEventListener('scroll', handleScroll)
-    return () => {
-      window?.removeEventListener('scroll', handleScroll)
-    }
+    return () => window?.removeEventListener('scroll', handleScroll)
   }, [handleScroll])
-
-  const containerRef = useRef<HTMLUListElement>(null)
-
-  useEffect(() => {
-    containerRef?.current?.scrollTo({ left: activeTab * 80, behavior: 'instant' }) 
-    // setTimeout(() => { 
-    // }, 1100)
-  }, [activeTab])
-
-  useEffect(() => {
-    const onScrollEnd = () => setIsScrolling(false)
-    const elem = containerRef.current
-    elem?.addEventListener('scrollend', onScrollEnd)
-    return () => {
-      elem?.removeEventListener('scrollend', onScrollEnd)
-    }
-  }, [])
 
   return (
     <ul
       className={cn(styles.mobileSection, lato.className, {
-        [styles.containerMobileFixed]: scrollPosition > 70
+        [styles.containerMobileFixed]: position < 120
       })}
       ref={containerRef}
-      onScroll={() => setIsScrolling(true)}
     >
       {list.map(({ title, param }, ix) => (
         <Tab

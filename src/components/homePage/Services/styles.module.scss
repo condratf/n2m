@@ -13,7 +13,6 @@
   &::before {
     position: absolute;
     content: '我們的服務';
-    left: calc(50% - 380px);
     top: -59px;
     font-style: normal;
     font-weight: 700;
@@ -25,6 +24,7 @@
     color: #84FFFF;
     z-index: -2;
     width: 100%;
+    text-align: center;
 
     @media #{$mobile} {
       left: calc(1%);

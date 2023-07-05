@@ -1,5 +1,5 @@
+'use client'
 // local libs
-import { ContactForm } from '@/components/shared'
 import {
   Features,
   FeaturesMobile,
@@ -10,29 +10,45 @@ import {
   Main,
   Various
 } from '@/components/homePage'
+import { OnAppear } from "@/components/animation"
+import { ContactForm } from '@/components/shared'
 // styles
 import styles from './styles.module.scss'
 
 export default function Home() {
+  const firstPartComponents = [
+    WhyChoose,
+    Various,
+    Services,
+  ]
+
+  const secondPartComponents = [
+    Solutions,
+    GetStarted,
+  ]
+
   return (
     <main className={styles.container}>
       <Main />
 
-      <WhyChoose />
+      {firstPartComponents.map((C, i) => (
+        <OnAppear key={`${i}-${Math.random()}`}>
+          <C />
+        </OnAppear>
+      ))}
 
-      <Various /> 
- 
-      <Services />
-    
       <Features />
 
       <FeaturesMobile />
 
-      <Solutions />
-
-      <GetStarted />
+      {secondPartComponents.map((C, i) => (
+        <OnAppear key={`${i}-${Math.random()}`}>
+          <C />
+        </OnAppear>
+      ))}
 
       <ContactForm />
+
     </main>
   )
 }

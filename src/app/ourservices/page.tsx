@@ -1,10 +1,10 @@
 'use client'
-import { FC, useEffect, useState } from 'react'
+import { FC, UIEvent, useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 // local
 import { NavigationTabs } from '@/components/layout'
 import { ContactForm } from '@/components/shared'
-import { Main, BottomBlock, SectionKeys } from '@/components/ourservices'
+import { Main, BottomBlock, BottomBlockMobile, SectionKeys } from '@/components/ourservices'
 // styles
 import styles from './styles.module.scss'
 
@@ -23,7 +23,7 @@ const featureList = [
 const OurServices: FC = () => {
   const searchParams = useSearchParams()
   const section = searchParams.get('section') as SectionKeys
-  
+
   const [activeItemIndex, setActiveItemIndex] = useState(0)
   const [activeTab, setActiveTab] = useState(0)
 
@@ -37,14 +37,17 @@ const OurServices: FC = () => {
 
   useEffect(() => {
     if (section) handleSetIndex(section)
-  },[section])
-
+  }, [section])
 
   return (
     <div className={styles.container}>
 
       <Main
         list={featureList}
+      />
+
+      <BottomBlock
+        activeItemIndex={activeItemIndex}
       />
 
       {/* mobile */}
@@ -54,11 +57,12 @@ const OurServices: FC = () => {
         onItemClick={handleSetIndex}
       />
 
-      <BottomBlock
+      {/* mobile */}
+      <BottomBlockMobile
         activeItemIndex={activeItemIndex}
         setActiveTab={setActiveTab}
       />
- 
+
       <ContactForm />
     </div>
   )

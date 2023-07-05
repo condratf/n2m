@@ -46,6 +46,7 @@
   padding: 0px;
 
   @media #{$mobile} {
+    display: none;
     margin: 2rem 0;
   }
 }
@@ -98,7 +99,7 @@
   font-weight: 700;
 
   @media #{$mobile} {
-    display: none;
+    display: none !important; 
   }
 }
 

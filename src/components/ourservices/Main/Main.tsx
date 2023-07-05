@@ -28,7 +28,7 @@ export const Main: FC<MainProps> = ({ list }) => {
               pathname: routes.ourservices,
               query: { section: param }
             }}
-          >
+          > 
             {title}
           </Link>
         ))}

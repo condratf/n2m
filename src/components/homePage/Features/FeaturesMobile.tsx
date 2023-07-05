@@ -3,7 +3,7 @@ import { FC, useEffect, useRef, useState } from 'react'
 // local libs
 import { ListItem } from './ListItem'
 import { FeaturesNavMobile } from './FeaturesNavMobile'
-import { lato, syncopate, throttle, useIsMobile } from '@/utils'
+import { lato, syncopate, throttle, useIsMobile, usePrevious } from '@/utils'
 import { featuresList } from './resources'
 // styles
 import styles from './styles.module.scss'
@@ -19,10 +19,13 @@ export const FeaturesMobile: FC = () => {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const [scrollPosition, setScrollPosition] = useState(0)
+  const [isScrolling, setIsScrolling] = useState(false)
 
   const handleScroll = throttle(() => {
+    setIsScrolling(true)
     const position = containerRef?.current?.scrollLeft || 0
     setScrollPosition(position)
+    setTimeout(() => setIsScrolling(false), 250)
   }, 250)
 
   useEffect(() => {
@@ -34,7 +37,7 @@ export const FeaturesMobile: FC = () => {
   }, [handleScroll])
 
   const [i, setI] = useState(0)
-  const [isScrolling, setIsScrolling] = useState(false)
+  const prevI = usePrevious<number>(i)
 
   useEffect(() => {
     setIsScrolling(true)
@@ -42,16 +45,16 @@ export const FeaturesMobile: FC = () => {
     const elem = refList[i]
     //@ts-ignore
     elem?.current?.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'start' })
-    setTimeout(() => setIsScrolling(false),500)
-  }, [i])
+    setTimeout(() => setIsScrolling(false), 350)
+  }, [i, prevI])
 
   useEffect(() => {
     if (!isScrolling) {
       if (scrollPosition < 90) setI(0)
-      if (scrollPosition > 90 && scrollPosition < 500) setI(1)
-      if (scrollPosition > 500 && scrollPosition < 900) setI(2)
-      if (scrollPosition > 900 && scrollPosition < 1100) setI(3)
-      if (scrollPosition > 1100) setI(4)
+      if (scrollPosition > 90 && scrollPosition < 450) setI(1)
+      if (scrollPosition > 450 && scrollPosition < 900) setI(2)
+      if (scrollPosition > 900 && scrollPosition < 1250) setI(3)
+      if (scrollPosition > 1250) setI(4)
     }
   }, [scrollPosition, isScrolling])
 
