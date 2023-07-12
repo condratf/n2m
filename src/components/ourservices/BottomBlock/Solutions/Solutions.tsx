@@ -5,6 +5,7 @@ import { TextWithTitle } from '@/components/shared'
 import { classNames, lato } from '@/utils'
 // styles
 import styles from './styles.module.scss'
+import { OnAppear } from '@/components/animation'
 
 const solutionsTabList = {
   'High Load System': { title: 'High Load System', text: 'Our specialists provide high load system services, ensuring optimal performance and scalability for systems handling heavy user traffic and large volumes of data' },
@@ -20,43 +21,48 @@ export const Solutions: FC = () => {
   const [selectedTab, setSelectedTab] = useState(solutionsTabList['High Load System'])
 
   const handleTabClick = (title: string) => setSelectedTab(solutionsTabList[title as keyof typeof solutionsTabList])
- 
+
   return (
     <div className={styles.solutions}>
-      <div className={styles.data}>
-        <TextWithTitle
-          title={'Development solutions'}
-          text={'Our company offers tailored solutions for diverse domains, including blockchain technology, web applications, and cloud-based applications. Whether you need secure and decentralized transactions with blockchain integration, interactive and user-friendly web applications, or scalable and flexible cloud-based solutions, our team is ready to deliver innovative and customized software solutions to meet your specific needs.'}
-          textPosition='center'
-        />
-      </div>
-
-      <section>
-        <div className={styles.textTitle}>
+      <OnAppear>
+        <div className={styles.data}>
           <TextWithTitle
-            title={selectedTab.title}
-            text={selectedTab.text}
-            titleSize='small'
+            title={'Development solutions'}
+            text={'Our company offers tailored solutions for diverse domains, including blockchain technology, web applications, and cloud-based applications. Whether you need secure and decentralized transactions with blockchain integration, interactive and user-friendly web applications, or scalable and flexible cloud-based solutions, our team is ready to deliver innovative and customized software solutions to meet your specific needs.'}
             textPosition='center'
           />
         </div>
+      </OnAppear>
 
-        <ul>
-          {Object.keys(solutionsTabList).map((title) => (
-            <li
-              className={classNames(
-                lato.className,
-                { [styles.isActive]: selectedTab.title === title }
-              )}
-              key={title}
-              onClick={() => handleTabClick(title)}
-            >
-              {title}
-            </li>
-          ))}
-        </ul>
+      <OnAppear
+        delay={0.2}
+      >
+        <section>
+          <div className={styles.textTitle}>
+            <TextWithTitle
+              title={selectedTab.title}
+              text={selectedTab.text}
+              titleSize='small'
+              textPosition='center'
+            />
+          </div>
 
-      </section>
+          <ul>
+            {Object.keys(solutionsTabList).map((title) => (
+              <li
+                className={classNames(
+                  lato.className,
+                  { [styles.isActive]: selectedTab.title === title }
+                )}
+                key={title}
+                onClick={() => handleTabClick(title)}
+              >
+                {title}
+              </li>
+            ))}
+          </ul>
+        </section>
+      </OnAppear>
 
     </div>
   )

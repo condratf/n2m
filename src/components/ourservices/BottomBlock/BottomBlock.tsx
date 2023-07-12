@@ -3,12 +3,12 @@ import { FC, useEffect, useMemo, useRef } from 'react'
 import Image from 'next/image'
 // local
 import { TextWithTitle } from '@/components/shared'
+import { OnAppear } from '@/components/animation'
 import { usePrevious } from '@/utils'
 import { Solutions } from './Solutions'
 import { cactusesBlockItems, lastBlockItems } from '../resources'
 // styles
 import styles from './styles.module.scss'
-import { OnAppear } from '@/components/animation'
 
 export const BottomBlock: FC<{
   activeItemIndex: number,
@@ -62,9 +62,7 @@ export const BottomBlock: FC<{
           </div>
         </OnAppear>
 
-        <OnAppear>
-          <Solutions />
-        </OnAppear>
+        <Solutions />
 
         <OnAppear>
           <div ref={testRef} className={styles.rD}>
@@ -82,11 +80,13 @@ export const BottomBlock: FC<{
           </div>
         </OnAppear>
 
-
-        <OnAppear>
-          <div ref={appRef} className={styles.cactuses}>
-            {cactusesBlockItems.map(({ title, text, img }) => (
-              <section key={title}>
+        <div ref={appRef} className={styles.cactuses}>
+          {cactusesBlockItems.map(({ title, text, img }, i) => (
+            <OnAppear
+              key={title}
+              delay={i ? 0.3 : 0.1}
+            >
+              <section>
                 <Image
                   src={img}
                   alt='cactus'
@@ -99,9 +99,9 @@ export const BottomBlock: FC<{
                   titlePosition='startTitle'
                 />
               </section>
-            ))}
-          </div>
-        </OnAppear>
+            </OnAppear>
+          ))}
+        </div>
 
         <OnAppear>
           <div ref={itRef} className={styles.consulting}>
@@ -144,18 +144,21 @@ export const BottomBlock: FC<{
           </div>
         </OnAppear>
 
-        <OnAppear>
-          <div ref={infraRef} className={styles.last}>
-            {lastBlockItems['desktop'].map(({ title, text }) => (
+        <div ref={infraRef} className={styles.last}>
+          {lastBlockItems['desktop'].map(({ title, text }, i) => (
+            <OnAppear
+              key={title}
+              delay={i ? 0.3 : 0.1}
+            >
               <TextWithTitle
-                key={title}
                 title={title}
                 text={text}
                 titlePosition='startTitle'
               />
-            ))}
-          </div>
-        </OnAppear>
+            </OnAppear>
+          ))}
+        </div>
+
 
       </div>
     )

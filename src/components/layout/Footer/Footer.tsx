@@ -56,7 +56,7 @@ export const Footer = () => {
         </div>
 
         <div className={styles.bottomBlockLicenses}>
-          <span>{t('Licenses')}</span>
+          <span>{t('Registered address:')}</span>
           {licensesLinks.map(({ href, name }, i) => (
             <Link onClick={e => {
               e.preventDefault()

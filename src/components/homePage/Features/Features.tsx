@@ -18,9 +18,10 @@ export const Features: FC = () => {
       <div className={styles.featuresContainer} >
         {featuresList.map(({ title, list, }, i) => (
           <ListItem
+            key={`${title}-${i}`}
             title={title}
             list={list}
-            key={`${title}-${i}`}
+            i={i}
           />
         ))}
       </div>

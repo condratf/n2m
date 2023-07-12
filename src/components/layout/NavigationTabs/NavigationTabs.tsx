@@ -25,7 +25,7 @@ export const NavigationTabs: FC<NavigationTabsProps> = ({
 
   useEffect(() => {
     //@ts-ignore
-    containerRef?.current?.scrollTo({ left: activeTab * 80, behavior: 'instant' })
+    containerRef?.current?.scrollTo({ left: activeTab * 99, behavior: 'instant' })
   }, [activeTab])
 
   const [position, setPosition] = useState(0)

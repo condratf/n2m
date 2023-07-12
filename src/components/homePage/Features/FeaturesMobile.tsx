@@ -1,9 +1,9 @@
 "use client"
 import { FC, useEffect, useRef, useState } from 'react'
 // local libs
-import { ListItem } from './ListItem'
+import { ListItem, ListItemMobile } from './ListItem'
 import { FeaturesNavMobile } from './FeaturesNavMobile'
-import { lato, syncopate, throttle, useIsMobile, usePrevious } from '@/utils'
+import { lato, syncopate, throttle, usePrevious } from '@/utils'
 import { featuresList } from './resources'
 // styles
 import styles from './styles.module.scss'
@@ -65,9 +65,20 @@ export const FeaturesMobile: FC = () => {
         <p className={lato.className}>{'We leverage the latest programming languages, frameworks, and tools to ensure efficient development processes and deliver robust and scalable software applications that meet the evolving demands of our clients.'}</p>
       </div>
 
-      <div className={styles.featuresContainer} ref={containerRef}>
+      {/* <div className={styles.featuresContainer} ref={containerRef}>
         {featuresList.map(({ title, list }, i) => (
           <ListItem
+            title={title}
+            list={list}
+            key={`${title}-${i}`}
+            ref={refs[i]}
+          />
+        ))}
+      </div> */}
+
+      <div className={styles.featuresContainerMobile} ref={containerRef}>
+        {featuresList.map(({ title, list }, i) => (
+          <ListItemMobile
             title={title}
             list={list}
             key={`${title}-${i}`}
