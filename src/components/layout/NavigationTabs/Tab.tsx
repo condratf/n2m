@@ -1,9 +1,7 @@
 'use client'
 import { FC } from 'react'
 // local
-import {
-  classNames as cn,
-} from '@/utils'
+import { classNames as cn } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 

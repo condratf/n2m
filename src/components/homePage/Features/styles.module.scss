@@ -125,6 +125,33 @@
   position: relative;
 
   @media #{$mobile} {
+    display: none;
+    overflow: scroll;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    max-width: 90vw;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.featuresContainerMobile {
+  display: none;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+  // height: min-content;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+
+  @media #{$mobile} {
+    display: flex;
     overflow: scroll;
     flex-wrap: nowrap;
     justify-content: flex-start;

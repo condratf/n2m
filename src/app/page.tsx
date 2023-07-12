@@ -19,36 +19,51 @@ export default function Home() {
   const firstPartComponents = [
     WhyChoose,
     Various,
-    Services,
-  ]
-
-  const secondPartComponents = [
-    Solutions,
-    GetStarted,
   ]
 
   return (
-    <main className={styles.container}>
-      <Main />
+    <>
+      <main className={styles.container}>
+        <Main />
 
-      {firstPartComponents.map((C, i) => (
-        <OnAppear key={`${i}-${Math.random()}`}>
-          <C />
+        {firstPartComponents.map((C, i) => (
+          <OnAppear key={`${i}-${Math.random()}`}>
+            <C />
+          </OnAppear>
+        ))}
+
+        <Services />
+
+        <Features />
+
+        <Solutions />
+
+        <OnAppear >
+          <GetStarted />
         </OnAppear>
-      ))}
 
-      <Features />
+        <ContactForm />
 
-      <FeaturesMobile />
+      </main>
+      <main className={styles.mobileContainer}>
+        <Main />
 
-      {secondPartComponents.map((C, i) => (
-        <OnAppear key={`${i}-${Math.random()}`}>
-          <C />
-        </OnAppear>
-      ))}
+        {firstPartComponents.map((C, i) => (
+          <C key={`${i}-${Math.random()}`} />
+        ))}
 
-      <ContactForm />
+        <Services />
 
-    </main>
+        <FeaturesMobile />
+
+        <Solutions />
+
+        <GetStarted />
+
+        <ContactForm />
+
+      </main>
+    </>
+
   )
 }

@@ -42,7 +42,11 @@ export const BottomBlockMobile: FC<{
   useEffect(() => {
     if (!isScrolling && (prevActiveItemIndex !== activeItemIndex)) {
       setIsScrolling(true)
-      refList[activeItemIndex]?.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+      refList[activeItemIndex]?.current?.scrollIntoView({
+        //@ts-ignore
+        behavior: 'instant',
+        block: 'end'
+      })
       setTimeout(() => setIsScrolling(false), 500);
     }
   }, [prevActiveItemIndex, activeItemIndex, isScrolling, refList])
