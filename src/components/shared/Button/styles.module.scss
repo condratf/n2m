@@ -1,0 +1,124 @@
+@import '@/styles/variables.scss';
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 119px;
+  height: 70px;
+  border-radius: 20px;
+}
+
+.btnPrimary {
+  background: $orange-accent;
+  color: $white;
+
+  &:hover {
+    background: $orange-secondary;
+  }
+
+  &:focus {
+    background: $orange-focus;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.btnSecondary {
+  border: 2px solid $orange-accent;
+  color: $orange-accent;
+
+  &:hover {
+    border: 2px solid $orange-secondary;
+  }
+
+  &:focus {
+    border: 2px solid $orange-focus;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    border: 2px solid $orange-accent;
+  }
+}
+
+.btnTertiary {
+  border-color: transparent;
+  color: $orange-accent;
+
+  &:hover {
+    color: $orange-secondary;
+  }
+
+  &:focus {
+    color: $orange-focus;
+  }
+
+  &:disabled {
+    color: $orange-accent;
+  }
+}
+
+.tab {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  width: 83px;
+  height: 54px;
+  border-radius: 10px;
+  color: $text-black;
+}
+
+.tabPrimary {
+  border: 2px solid $grey-light;
+
+  &:hover {
+    border: 2px solid $grey-secondary;
+  }
+
+  &:focus {
+    background: $grey-light;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.tabSecondary {
+  border: 2px solid $orange-accent;
+  color: $orange-accent;
+
+  &:hover {
+    border: 2px solid $orange-secondary;
+  }
+
+  &:focus {
+    border: 2px solid $orange-focus;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    border: 2px solid $orange-accent;
+  }
+}
+
+.tabTertiary {
+  border-color: transparent;
+  color: $orange-accent;
+
+  &:hover {
+    color: $orange-secondary;
+  }
+
+  &:focus {
+    color: $orange-focus;
+  }
+
+  &:disabled {
+    color: $orange-accent;
+  }
+}

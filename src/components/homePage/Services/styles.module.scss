@@ -1,0 +1,95 @@
+@import '@/styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  max-width: 1200px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: '我們的服務';
+    top: -59px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 154px;
+    text-align: center;
+    text-transform: uppercase;
+    /* Accent/Cian */
+    color: #84FFFF;
+    z-index: -2;
+    width: 100%;
+    text-align: center;
+
+    @media #{$mobile} {
+      left: calc(1%);
+      font-weight: 700;
+      font-size: 64px;
+      top: -91px;
+    }
+  }
+
+  h5 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 25px;
+    text-align: center;
+    color: #1A1923;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    max-width: 827px;
+    gap: 16px;
+    
+
+    @media #{$mobile} {
+      gap: 8px;
+      width: 93%;
+      max-width: 367px;
+    }
+
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 24px;
+      // Accent/Phosphor
+      background: #D4FF6C;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      /* Black */
+      color: #1A1923;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background: #D4FF6C;
+        box-shadow: 0px 16px 16px rgba(174, 234, 0, 0.25);
+        border-radius: 20px;
+        cursor: pointer;
+        transform: translateY(-1px);
+      }
+
+      @media #{$mobile} {
+        padding: 16px;
+        gap: 10px;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        border-radius: 10px;
+      }
+    }
+  }
+}

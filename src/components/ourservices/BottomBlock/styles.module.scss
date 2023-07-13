@@ -1,0 +1,128 @@
+@import '@/styles/variables.scss';
+
+.container {
+  gap: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 240px 0px;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+.cactuses {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  max-width: 1200px;
+
+  @media #{$mobile} {
+    display: none;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+    max-width: 584px;
+    max-height: max-content;
+    height: max-content;
+    /* Light Gray */
+    background: #F5F5F5;
+    border-radius: 40px;
+    
+
+    img {
+      background: #FFFFFF;
+      border-radius: 30px;
+    }
+
+  }
+}
+
+.consulting {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  max-width: 1200px;
+
+  @media #{$mobile} {
+    display: none;
+  }
+}
+
+.rD {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  max-width: 1200px;
+
+  @media #{$mobile} {
+    display: none;
+  }
+
+  img {
+    border: 4px solid #F5F5F5;
+    border-radius: 40px;
+  }
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  gap: 16px;
+  max-width: 800px;
+  padding: 0px;
+  margin: 0 auto;
+  position: relative;
+  z-index: -1;
+
+  @media #{$mobile} {
+    display: none;
+  }
+
+  &::before {
+    content: '數據分析';
+    position: absolute;
+    left: 144px;
+    top: -37px;
+    color: #84FFFF;
+    text-align: center;
+    font-size: 128px;
+    font-weight: 700;
+    line-height: 120%;
+    text-transform: uppercase;
+    z-index: -2;
+
+    @media #{$mobile} {
+      display: none;
+    }
+  }
+}
+
+.last {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  margin: 0 auto;
+
+  @media #{$mobile} {
+    display: none;
+  }
+
+  div:nth-of-type(2) {
+    h1 {
+      max-width: 554px;
+    }
+  }
+}

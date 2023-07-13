@@ -1,0 +1,13 @@
+@import '@/styles/variables.scss';
+
+.container {
+  max-width: 1200px;
+  margin: 9rem auto;
+  margin-bottom: 15rem;
+
+  @media #{$mobile} {
+    margin-top: 2rem;
+    margin-bottom: 7.5rem;
+  }
+}
+ 

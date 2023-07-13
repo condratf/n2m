@@ -1,0 +1,75 @@
+@import '@/styles/variables.scss';
+
+.mainContainer {
+  max-width: 1200px;
+  margin: 8rem auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 240px;
+  @media #{$mobile} {
+    margin: 2rem 0;
+    margin-bottom: 120px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 64px;
+  max-width: 800px;
+  position: relative;
+
+  @media #{$mobile} {
+    padding: 0 10px;
+    gap: 32px;
+  }
+  
+
+  &::before {
+    content: '政策';
+    position: absolute;
+    width: 300px;
+    height: 154px;
+    left: calc(50% - 256px/2);
+    top: -70px;
+    // font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 120%;
+    /* identical to box height, or 154px */
+    text-align: center;
+    text-transform: uppercase;
+    color: #84FFFF;
+    z-index: -2;
+
+    @media #{$mobile} {
+      width: 131px;
+      height: 77px;
+      left: 120px;
+      top: -43px;
+      font-style: normal;
+      font-size: 64px;
+    }
+  }
+
+  h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 50px;
+    /* Text/Black */
+    color: #212121;
+    @media #{$mobile} {
+      margin-bottom: 5rem;
+      font-size: 32px;
+    }
+  }
+}
+
+.outerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 9rem;
+}

@@ -1,0 +1,21 @@
+@import '@/styles/variables.scss';
+
+.btn {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 10px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  top: 265px;
+  right: 333px;
+
+  @media #{$mobile} {
+    top: 126px;
+    right: 18px;
+  }
+}

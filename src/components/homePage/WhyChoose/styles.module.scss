@@ -1,0 +1,80 @@
+@import '@/styles/variables.scss';
+
+.whyChooseContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  position: relative;
+  max-width: 1200px;
+
+  @media #{$mobile} {
+    max-width: 98vw;
+    padding: 1rem;
+  }
+
+  &::before {
+    position: absolute;
+    content: '软件开发';
+    left: calc(50% - 512px/2);
+    top: -95px;
+    // font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 128px;
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+    /* Accent/Phosphor */
+    color: #D4FF6C;
+    z-index: -2;
+    margin: 2rem 0;
+
+    @media #{$mobile} {
+      left: calc(50% - 256px/2);
+      top: -69px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 64px;
+      line-height: 120%;
+    }
+  }
+
+  h5 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 25px;
+    text-align: center;
+    /* Black */
+    color: #1A1923;
+
+    @media #{$mobile} {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 19px;
+    }
+  }
+
+  p {
+    // font-family: 'Lato';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 120%;
+    text-align: center;
+    /* Black */
+    color: #1A1923;
+
+    @media #{$mobile} {
+      font-size: 32px;
+    }
+
+    span {
+      color: #212121;
+      opacity: 0.5;
+    }
+  }
+}

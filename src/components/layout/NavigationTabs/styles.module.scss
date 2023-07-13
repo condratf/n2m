@@ -1,0 +1,58 @@
+@import '@/styles/variables.scss';
+
+.mobileSection {
+  display: none;
+
+  @media #{$mobile} {
+    display: flex;
+    position: sticky; 
+  }
+
+  margin-top: -8rem;
+  top: 7rem;
+  max-width: 97vw;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  overflow-x: scroll;
+  background: #F5F5F5;
+  border: 1px solid #F5F5F5;
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  margin: 1rem auto;
+  transition: all 0.2s ease-in-out;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.containerMobileFixed {
+  background: rgba(255, 255, 255, 0.7);
+  top: 5.8rem;
+  border: transparent;
+  border-top-left-radius: 0%;
+  border-top-right-radius: 0%;
+  width: 96vw;
+  max-width: 96vw;
+}
+
+.tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 16px 8px;
+  gap: 10px;
+  color: #212121;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  background: transparent;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.isActive {
+  background: #D4FF6C !important;
+}

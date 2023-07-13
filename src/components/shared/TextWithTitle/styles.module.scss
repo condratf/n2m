@@ -1,0 +1,73 @@
+@import '@/styles/variables.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px;
+  gap: 16px;
+  margin: 0 auto;
+
+  @media #{$mobile} {
+    padding: 16px;
+  }
+
+  h1 {
+    // font-family: 'Syncopate';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 50px;
+    /* Text/Black */
+    color: #212121;
+
+    @media #{$mobile} {
+      font-size: 18px;
+      line-height: 19px;
+      width: 100%;
+      text-align: center !important;
+    }
+  }
+
+  h3 {
+    /* Text/Black */
+    color: #212121;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    @media #{$mobile} {
+      font-size: 18px;
+    }
+  }
+
+  p {
+    // font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    /* Text/Soft black */
+    color: rgba(33, 33, 33, 0.5);
+
+    @media #{$mobile} {
+      font-size: 18px;
+    }
+  }
+}
+
+.centerTitle {
+  width: 100%;
+  text-align: center;
+}
+
+.startTitle {
+  text-align: start;
+}
+
+.endTitle {
+  text-align: end;
+}
+
+.textCenter {
+  text-align: center;
+}
