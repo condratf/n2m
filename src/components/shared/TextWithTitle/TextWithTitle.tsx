@@ -17,10 +17,11 @@ export const TextWithTitle: FC<TextWithTitleProps> = ({
   text,
   titlePosition = 'centerTitle',
   titleSize = 'normal',
-  textPosition = 'normal'
+  textPosition = 'normal',
+  ...rest
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} { ...rest }>
       {titleSize === 'normal' ? (
         <h1 className={`${styles[titlePosition]} ${syncopate.className}`}>
           {title}

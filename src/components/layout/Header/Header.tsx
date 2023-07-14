@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 // local
 import { Button } from '@/components/shared'
-import { lato, useIsMobile } from '@/utils'
+import { classNames, lato } from '@/utils'
 import { routes } from '@/routes'
 import { globals } from '@/global'
 // styles
@@ -35,8 +35,8 @@ export const Header: FC = () => {
 
       <div className={styles.navigation}>
         {links.map((item, i) => (
-          <button className={styles.link} key={item.name}>
-            <Link className={lato.className} href={item.href}>{item.name}</Link>
+          <button key={item.name}>
+            <Link className={classNames(styles.link, lato.className)} href={item.href}>{item.name}</Link>
           </button>
         ))}
       </div>
