@@ -1,5 +1,5 @@
 'use client'
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useCallback, useEffect, useRef, useState } from 'react'
 // local
 import { Tab } from './Tab'
 import {
@@ -7,24 +7,32 @@ import {
   lato,
   throttle
 } from '@/utils'
+import { SERVICES_LIST } from '@/app/constants'
 // styles
 import styles from './styles.module.scss'
 
 export type NavigationTabsProps = {
-  list: { title: string, param: string }[],
   onItemClick: <T extends string = string>(item: T) => unknown,
   activeTab: number,
 }
 
 export const NavigationTabs: FC<NavigationTabsProps> = ({
-  list,
   onItemClick,
   activeTab,
 }) => {
   const containerRef = useRef<HTMLUListElement>(null)
 
+  const onClickHandler = useCallback((param: string) => {
+    const node = document.querySelector(`[data-mobParam=${param}]`)
+    node?.scrollIntoView({ behavior: 'instant', block: 'end' })
+    onItemClick(param)
+  }, [])
+
   useEffect(() => {
-    //@ts-ignore
+    window.scrollTo({ top: 0 });
+  }, [])
+
+  useEffect(() => {
     containerRef?.current?.scrollTo({ left: activeTab * 99, behavior: 'instant' })
   }, [activeTab])
 
@@ -47,13 +55,13 @@ export const NavigationTabs: FC<NavigationTabsProps> = ({
       })}
       ref={containerRef}
     >
-      {list.map(({ title, param }, ix) => (
+      {SERVICES_LIST.map(({ title, param }, ix) => (
         <Tab
           key={`${title}-${ix}`}
           title={title}
           param={param}
           isActive={activeTab === ix}
-          onClick={onItemClick}
+          onClick={onClickHandler}
         />
       ))}
     </ul>

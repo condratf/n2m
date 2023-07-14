@@ -1,5 +1,5 @@
 'use client'
-import { FC, ForwardedRef, PropsWithChildren, forwardRef } from "react"
+import { ForwardedRef, PropsWithChildren, forwardRef } from "react"
 import { motion } from "framer-motion"
 
 type OnAppearProps = {
@@ -9,7 +9,7 @@ type OnAppearProps = {
 }
 
 export const OnAppear = forwardRef<HTMLDivElement, PropsWithChildren<OnAppearProps>>(
-  ({ children, delay, className }, ref) => {
+  ({ children, delay, className, ...rest }, ref) => {
     return (
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
@@ -18,6 +18,7 @@ export const OnAppear = forwardRef<HTMLDivElement, PropsWithChildren<OnAppearPro
         viewport={{ once: true }}
         className={className || ''}
         ref={ref}
+        { ...rest }
       >
         {children}
       </motion.div>
