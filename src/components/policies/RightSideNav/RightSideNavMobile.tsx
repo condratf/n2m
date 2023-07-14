@@ -44,7 +44,7 @@ export const RightSideNavMobile: FC = () => {
     } as Record<string, RefObject<HTMLAnchorElement>>
       const key = Object.keys(refs).filter(key => pathname.toLowerCase().includes(key))[0]
       const elem = refs[key]
-      //@ts-ignore
+      // @ts-ignore
       elem?.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
   }, [pathname])
 

@@ -24,6 +24,7 @@ export const NavigationTabs: FC<NavigationTabsProps> = ({
 
   const onClickHandler = useCallback((param: string) => {
     const node = document.querySelector(`[data-mobParam=${param}]`)
+    // @ts-ignore
     node?.scrollIntoView({ behavior: 'instant', block: 'end' })
     onItemClick(param)
   }, [])
@@ -33,6 +34,7 @@ export const NavigationTabs: FC<NavigationTabsProps> = ({
   }, [])
 
   useEffect(() => {
+    // @ts-ignore
     containerRef?.current?.scrollTo({ left: activeTab * 99, behavior: 'instant' })
   }, [activeTab])
 
