@@ -15,9 +15,10 @@ const isScrolledIntoView = (el: Element) => {
   var elemBottom = rect.bottom;
 
   // Only completely visible elements return true:
-  var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+  //var isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
   // Partially visible elements return true:
-  //isVisible = elemTop < window.innerHeight && elemBottom >= 0;
+  var isVisible =
+    elemTop >= 0 && elemTop < (window.innerHeight - 200) && elemBottom >= 0;
   return isVisible;
 }
 
