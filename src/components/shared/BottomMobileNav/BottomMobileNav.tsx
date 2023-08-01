@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next'
 // local
 import BurgerMenu from './BurgerMenu/BurgerMenu'
 import { routes } from '@/routes'
-import { globals } from '@/global'
+import { scrollToContactForm } from '@/global'
 import { CloseIcon } from '@/icons'
 import { classNames, lato } from '@/utils'
 // styles
@@ -31,13 +31,7 @@ export const BottomMobileNav: FC = () => {
   return (
     <>
       <div className={styles.mobileNavMenu}>
-        <span onClick={() => {
-          if (globals.currRef) {
-            globals.currRef.current?.scrollIntoView({
-              behavior: "smooth", block: 'nearest', inline: 'center' 
-            })
-          }
-        }}>{t('Write us')}</span>
+        <span onClick={scrollToContactForm}>{t('Write us')}</span>
         <BurgerMenu
           className={isActiveMenu ? styles.burger : ''}
           isActive={isActiveMenu}
@@ -54,14 +48,7 @@ export const BottomMobileNav: FC = () => {
         )}
       >
         <div className={styles.slideNavHeading}>
-          <span onClick={() => {
-            if (globals.currRef) {
-              globals.currRef.current?.scrollIntoView({
-                behavior: "smooth", block: 'nearest', inline: 'center' 
-              })
-            }
-            setIsActiveMenu(false)
-          }}>{t('Write Us')}</span>
+          <span onClick={scrollToContactForm}>{t('Write Us')}</span>
           <button onClick={() => setIsActiveMenu(false)}>
             <CloseIcon />
           </button>

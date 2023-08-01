@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Button } from '@/components/shared'
 import { classNames, lato } from '@/utils'
 import { routes } from '@/routes'
-import { globals } from '@/global'
+import { scrollToContactForm } from '@/global'
 // styles
 import styles from './styles.module.scss'
 
@@ -16,34 +16,27 @@ const links = [
   { name: 'Policies', href: routes.policies.termsOfUse },
 ]
 
-export const Header: FC = () => {
+export const Header: FC = () => (
+  <div className={styles.header}>
+    <Link href={routes.home}>
+      <Image
+        src="/assets/logo/logo.svg"
+        alt=""
+        width={198}
+        height={48}
+      />
+    </Link>
 
-  const scrollToContacts = () => globals?.currRef?.current?.scrollIntoView({
-    behavior: "smooth", block: "end"
-  })
-
-  return (
-    <div className={styles.header}>
-      <Link href={routes.home}>
-        <Image
-          src="/assets/logo/logo.svg"
-          alt=""
-          width={198}
-          height={48}
-        />
-      </Link>
-
-      <div className={styles.navigation}>
-        {links.map((item, i) => (
-          <button key={item.name}>
-            <Link className={classNames(styles.link, lato.className)} href={item.href}>{item.name}</Link>
-          </button>
-        ))}
-      </div>
-
-      <Button onClick={scrollToContacts} className={styles.button} btnType="button" variant={'secondary'}>
-        {'Write us'}
-      </Button>
+    <div className={styles.navigation}>
+      {links.map((item, i) => (
+        <button key={item.name}>
+          <Link className={classNames(styles.link, lato.className)} href={item.href}>{item.name}</Link>
+        </button>
+      ))}
     </div>
-  )
-}
+
+    <Button onClick={scrollToContactForm} className={styles.button} btnType="button" variant={'secondary'}>
+      {'Write us'}
+    </Button>
+  </div>
+)

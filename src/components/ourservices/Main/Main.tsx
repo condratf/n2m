@@ -4,18 +4,23 @@ import { useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 // local
 import { routes } from '@/routes'
-import { lato, syncopate, } from '@/utils'
+import { lato, syncopate, useIsMobile, } from '@/utils'
 import { SERVICES_LIST } from '@/app/constants'
 import { SectionKeys } from '../resources'
 // styles
 import styles from './styles.module.scss'
 
-const moveToNode = (node: Element, behavior: string = 'smooth') => {
+const moveToNode = (
+  node: Element,
+  behavior: string = 'smooth',
+  block: ScrollLogicalPosition | undefined = 'center'
+) => {
   // @ts-expect-error
-  node.scrollIntoView({ behavior, block: 'center' })
+  node.scrollIntoView({ behavior, block })
 }
 
 export const Main: FC = () => {
+  const { isMobile } = useIsMobile()
   const searchParams = useSearchParams()
 
   const getOnClickHandler = useCallback((param: string) => () => {
@@ -24,8 +29,8 @@ export const Main: FC = () => {
     if (!node) return
 
     let heightBefore = document.body.scrollHeight
-    
-    moveToNode(node);
+
+    moveToNode(node, 'smooth', isMobile ? 'start' : 'center');
 
     // хак, так как используем анимацию, блоки становятся больше
     // и из-за этого не доскроливается, выполняем доскрол, если
@@ -33,7 +38,7 @@ export const Main: FC = () => {
     setTimeout(() => {
       if (heightBefore === document.body.scrollHeight) return
 
-      moveToNode(node, 'auto');
+      moveToNode(node, 'auto', isMobile ? 'start' : 'center');
     }, 400)
   }, [])
 
@@ -48,7 +53,7 @@ export const Main: FC = () => {
   return (
     <div className={styles.main}>
       <h1 className={syncopate.className}>{'Our services'}</h1>
-      
+
       {/* mobile */}
       <p className={lato.className}>{'We create solutions that work on the result of your projects.'}</p>
 
@@ -63,7 +68,7 @@ export const Main: FC = () => {
               pathname: routes.ourservices,
               query: { section: param }
             }}
-          > 
+          >
             {title}
           </Link>
         ))}

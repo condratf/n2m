@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { Button } from '../Button'
 import { ThankYouModal } from '@/components/modals'
 import { FormValues, FormValuesErrors } from './types'
-import { globals, setCurrRef } from '@/global'
+import { setCurrRef } from '@/global'
 import { routes } from '@/routes'
 import { classNames, lato, validateEmail } from '@/utils'
 // styles
@@ -21,9 +21,8 @@ export const ContactForm: FC = () => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (ref !== globals.currRef) {
-      setCurrRef(ref, () => setAgree(v => v))
-    }
+    setCurrRef(ref, () => setAgree(v => v))
+    return () => setCurrRef(null, () => setAgree(v => v))
   }, [ref])
 
   const [{ emailTouched, textTouched }, setTouched] = useState({ emailTouched: false, textTouched: false })
@@ -89,7 +88,7 @@ export const ContactForm: FC = () => {
   }
 
   return (
-    <div ref={ref} className={`${styles.contactForm} ${lato.className}`}>
+    <div ref={ref} className={`${styles.contactForm} ${lato.className}`} id='contact-form'>
       <div className={styles.contactFormMap}>
         <Image
           src='/assets/map.png'

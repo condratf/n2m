@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react'
 import Image from 'next/image'
 // local
 import { BottomBlock } from './BottomBlock'
-import { globals } from '@/global'
+import { scrollToContactForm } from '@/global'
 import { classNames as cn } from '@/utils'
 import { lato, syncopate } from '@/utils/fonts'
 // styles
@@ -28,13 +28,7 @@ export const Main: FC = () => {
         </div>
         <p className={lato.className}>{'We provide innovative software development solutions to enhance your business.'}</p>
         <button
-          onClick={() => {
-            if (globals.currRef) {
-              globals.currRef.current?.scrollIntoView({
-                behavior: "smooth", block: "end"
-              })
-            }
-          }}
+          onClick={scrollToContactForm}
           className={lato.className}>{'Get Started'}</button>
       </div>
       <Image
