@@ -5,17 +5,13 @@ import { useTranslation } from 'react-i18next'
 // local
 import { Button } from '@/components/shared'
 import { aboutLinks, contacts, licensesLinks, policiesLinks } from './resources'
-import { globals } from '@/global'
+import { scrollToContactForm } from '@/global'
 import { copyText, lato, syncopate } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
 export const Footer = () => {
   const { t } = useTranslation()
-
-  const scrollToContacts = () => globals?.currRef?.current?.scrollIntoView({
-    behavior: "smooth", block: "end",
-  })
 
   return (
     <div className={`${styles.footer} ${lato.className}`}>
@@ -24,7 +20,7 @@ export const Footer = () => {
         <a href='mailto:support@daniertech.com' className={syncopate.className}>{'support@daniertech.com'}</a>
 
         <Button
-          onClick={scrollToContacts}
+          onClick={scrollToContactForm}
           className={styles.button} btnType="button" variant={'secondary'}>
           {t('Write us')}
         </Button>
