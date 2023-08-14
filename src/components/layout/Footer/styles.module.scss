@@ -73,18 +73,25 @@
   padding: 0px;
   gap: 32px;
   width: 303px;
-  height: 57px;
+  //height: 57px;
   align-self: baseline;
   margin-bottom: 32px;
+
+  @media #{$mobile} {
+    margin-bottom: 0;
+  }
 }
 
 .contactsBlockItem {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
-  width: 145px;
-  height: 57px;
+  //width: 145px;
+  //height: 57px;
+
+  @media #{$mobile} {
+    flex-direction: column;
+  }
 
   span:first-of-type {
     font-style: normal;

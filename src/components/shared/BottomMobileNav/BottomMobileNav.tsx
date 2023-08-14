@@ -53,7 +53,7 @@ export const BottomMobileNav: FC = () => {
             <CloseIcon />
           </button>
         </div>
-        <span>{t('About company')}</span>
+        <span>{t('About')}</span>
         {mainLinksBlock.map(({ href, name }, i) => (
           <Link onClick={() => setIsActiveMenu(false)} key={`${name}-${i}`} className={styles.menuLink} href={href}>
             {t(name)}

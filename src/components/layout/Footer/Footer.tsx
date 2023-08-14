@@ -38,7 +38,7 @@ export const Footer = () => {
 
       <div className={styles.bottomBlock}>
         <div className={styles.bottomBlockLinks}>
-          <span>{t('About company')}</span>
+          <span>{t('About')}</span>
           {aboutLinks.map(({ href, name }, i) => (
             <Link key={`${name}-${i}`} className={styles.link} href={href}>{t(name)}</Link>
           ))}
