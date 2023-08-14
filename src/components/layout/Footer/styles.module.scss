@@ -73,7 +73,7 @@
   padding: 0px;
   gap: 32px;
   width: 303px;
-  height: 57px;
+  //height: 57px;
   align-self: baseline;
   margin-bottom: 32px;
 
@@ -87,7 +87,7 @@
   align-items: center;
   gap: 8px;
   //width: 145px;
-  height: 57px;
+  //height: 57px;
 
   @media #{$mobile} {
     flex-direction: column;
