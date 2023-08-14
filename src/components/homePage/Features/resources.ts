@@ -23,7 +23,7 @@ export const featuresList = [
   {
     title: 'Web',
     list: [
-      'Vue', 'Saas', 'Coffee', 'Angular', 'WebGl'
+      'Vue', 'SaaS', 'Coffee', 'Angular', 'WebGl'
     ],
     // ref: webRef,
   },

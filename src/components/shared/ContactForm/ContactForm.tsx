@@ -102,7 +102,7 @@ export const ContactForm: FC = () => {
       <div className={styles.contactFormContact}>
         <h3>{t('Write Us')}</h3>
         <p>
-          {t('Take your freelancing to the next level with our app. Manage your work, Grow your network, and Never miss an opportunity.')}
+          {t(`Don't miss the opportunity, write to us right now! Please fill in the form below. Our team will contact you shortly.`)}
         </p>
         <form>
           <input
