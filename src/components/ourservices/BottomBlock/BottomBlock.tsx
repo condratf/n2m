@@ -4,7 +4,7 @@ import Image from "next/image";
 import { TextWithTitle } from "@/components/shared";
 import { OnAppear } from "@/components/animation";
 import { Solutions } from "./Solutions";
-import { cactusesBlockItems, lastBlockItems } from "../resources";
+import { cactusesFirstBlockItems, cactusesLastBlockItems } from "../resources";
 import { SERVICES } from "@/app/constants";
 // styles
 import styles from "./styles.module.scss";
@@ -50,7 +50,7 @@ export const BottomBlock = () => {
       </OnAppear>
 
       <div className={styles.cactuses}>
-        {cactusesBlockItems.map(({ title, param, text, img }, i) => (
+        {cactusesFirstBlockItems.map(({ title, param, text, img }, i) => (
           <OnAppear key={title} delay={i ? 0.3 : 0.1}>
             <section data-param={param}>
               <Image src={img} alt="cactus" width={552} height={200} />
@@ -100,23 +100,35 @@ export const BottomBlock = () => {
       </OnAppear>
 
       <OnAppear>
-        <div className={styles.data} data-param={SERVICES.dataAnalytics.param}>
+        <div
+          className={styles.consulting}
+          data-param={SERVICES.dataAnalytics.param}
+        >
+          <Image
+            src={"/assets/graphic/cactus/cactus_4.png"}
+            alt="card2"
+            width={360}
+            height={360}
+          />
           <TextWithTitle
             title={SERVICES.dataAnalytics.title}
             text={SERVICES.dataAnalytics.text}
+            titlePosition="startTitle"
           />
         </div>
       </OnAppear>
 
-      <div className={styles.last}>
-        {lastBlockItems["desktop"].map(({ title, text, param }, i) => (
+      <div className={styles.cactuses}>
+        {cactusesLastBlockItems["desktop"].map(({ title, text, param, img }, i) => (
           <OnAppear key={title} delay={i ? 0.3 : 0.1}>
-            <TextWithTitle
-              data-param={param}
-              title={title}
-              text={text}
-              titlePosition="startTitle"
-            />
+            <section data-param={param}>
+              <Image src={img} alt="cactus" width={552} height={200} />
+              <TextWithTitle
+                title={title}
+                text={text}
+                titlePosition="startTitle"
+              />
+            </section>
           </OnAppear>
         ))}
       </div>

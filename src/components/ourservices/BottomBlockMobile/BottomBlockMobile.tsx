@@ -4,7 +4,7 @@ import Image from 'next/image'
 // local
 import { TextWithTitle } from '@/components/shared'
 import { Solutions } from './Solutions'
-import { cactusesBlockItems, lastBlockItems } from '../resources'
+import { cactusesFirstBlockItems, cactusesLastBlockItems } from '../resources'
 import { SERVICES } from '@/app/constants'
 // styles
 import styles from './styles.module.scss'
@@ -100,7 +100,7 @@ export const BottomBlockMobile: FC<{
       </div>
 
       <div className={styles.cactuses}>
-        {cactusesBlockItems.map(({ title, text, img, param }, i) => (
+        {cactusesFirstBlockItems.map(({ title, text, img, param }, i) => (
           <section key={title} ref={i === 0 ? appRef : uxRef}  data-mobParam={param}>
             <Image
               src={img}
@@ -145,22 +145,35 @@ export const BottomBlockMobile: FC<{
         />
       </div>
 
-      <div ref={dataRef} className={styles.data} data-mobParam={SERVICES.dataAnalytics.param}>
+      <div ref={dataRef} className={styles.consulting} data-mobParam={SERVICES.dataAnalytics.param}>
+        <Image
+          src={'/assets/graphic/cactus/cactus_4.png'}
+          alt='card2'
+          width={240}
+          height={240}
+        />
         <TextWithTitle
           title={SERVICES.dataAnalytics.title}
           text={SERVICES.dataAnalytics.text}
+          titlePosition='startTitle'
         />
       </div>
 
-      <div className={styles.last}>
-        {lastBlockItems['mobile'].map(({ title, text, param }, i) => (
-          <div key={title} ref={i === 0 ? infraRef : cyberRef} data-mobParam={param}>
+      <div className={styles.cactuses}>
+        {cactusesLastBlockItems['mobile'].map(({ title, text, param, img }, i) => (
+          <section key={title} ref={i === 0 ? appRef : uxRef}  data-mobParam={param}>
+            <Image
+              src={img}
+              alt='cactus'
+              width={328}
+              height={200}
+            />
             <TextWithTitle
               title={title}
               text={text}
               titlePosition='startTitle'
             />
-          </div>
+          </section>
         ))}
       </div>
 
