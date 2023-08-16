@@ -23,9 +23,13 @@ export const NavigationTabs: FC<NavigationTabsProps> = ({
   const containerRef = useRef<HTMLUListElement>(null)
 
   const onClickHandler = useCallback((param: string) => {
-    const node = document.querySelector(`[data-mobParam=${param}]`)
+    const node = document.querySelector(`[data-mobParam=${param}]`) as HTMLElement
     // @ts-ignore
-    node?.scrollIntoView({ behavior: 'instant', block: 'end' })
+    window.scrollTo({
+      // window.scrollTo вместо scrollIntoView, чтобы блоки отображались в одной точке
+      top: Number(node?.offsetTop) - 180,
+      behavior: "auto"
+    })
     onItemClick(param)
   }, [])
 

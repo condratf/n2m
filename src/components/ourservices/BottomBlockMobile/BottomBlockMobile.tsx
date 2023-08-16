@@ -161,7 +161,7 @@ export const BottomBlockMobile: FC<{
 
       <div className={styles.cactuses}>
         {cactusesLastBlockItems['mobile'].map(({ title, text, param, img }, i) => (
-          <section key={title} ref={i === 0 ? appRef : uxRef}  data-mobParam={param}>
+          <section key={title} ref={i === 0 ? infraRef : cyberRef}  data-mobParam={param}>
             <Image
               src={img}
               alt='cactus'
