@@ -12,10 +12,12 @@ import {
 } from '@/components/homePage'
 import { OnAppear } from "@/components/animation"
 import { ContactForm } from '@/components/shared'
+import { useIsMobile } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
 export default function Home() {
+  const { isMobile } = useIsMobile()
   const firstPartComponents = [
     WhyChoose,
     Various,
@@ -42,7 +44,7 @@ export default function Home() {
           <GetStarted />
         </OnAppear>
 
-        <ContactForm />
+        {!isMobile && <ContactForm />}
 
       </main>
       <main className={styles.mobileContainer}>

@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 // local
 import { Button } from '@/components/shared'
-import { classNames, lato } from '@/utils'
+import { classNames, lato, useIsMobile } from '@/utils'
 import { routes } from '@/routes'
 import { scrollToContactForm } from '@/global'
 // styles
@@ -16,7 +16,9 @@ const links = [
   { name: 'Policies', href: routes.policies.termsOfUse },
 ]
 
-export const Header: FC = () => (
+export const Header: FC = () => {
+  const { isMobile } = useIsMobile()
+  return (
   <div className={styles.header}>
     <Link href={routes.home}>
       <Image
@@ -35,8 +37,8 @@ export const Header: FC = () => (
       ))}
     </div>
 
-    <Button onClick={scrollToContactForm} className={styles.button} btnType="button" variant={'secondary'}>
+    <Button onClick={() => scrollToContactForm(isMobile)} className={styles.button} btnType="button" variant={'secondary'}>
       {'Write us'}
     </Button>
   </div>
-)
+)}

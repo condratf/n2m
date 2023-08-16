@@ -7,7 +7,7 @@ import BurgerMenu from './BurgerMenu/BurgerMenu'
 import { routes } from '@/routes'
 import { scrollToContactForm } from '@/global'
 import { CloseIcon } from '@/icons'
-import { classNames, lato } from '@/utils'
+import { classNames, lato, useIsMobile } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -26,12 +26,13 @@ const secondaryLinksBlock = [
 
 export const BottomMobileNav: FC = () => {
   const { t } = useTranslation()
+  const { isMobile } = useIsMobile()
   const [isActiveMenu, setIsActiveMenu] = useState(false)
 
   return (
     <>
       <div className={styles.mobileNavMenu}>
-        <span onClick={scrollToContactForm}>{t('Write us')}</span>
+        <span onClick={() => scrollToContactForm(isMobile)}>{t('Write us')}</span>
         <BurgerMenu
           className={isActiveMenu ? styles.burger : ''}
           isActive={isActiveMenu}
@@ -48,7 +49,9 @@ export const BottomMobileNav: FC = () => {
         )}
       >
         <div className={styles.slideNavHeading}>
-          <span onClick={scrollToContactForm}>{t('Write Us')}</span>
+          <span onClick={() => { scrollToContactForm(isMobile); setIsActiveMenu(false) }}>
+            {t('Write Us')}
+          </span>
           <button onClick={() => setIsActiveMenu(false)}>
             <CloseIcon />
           </button>
