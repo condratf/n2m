@@ -4,13 +4,14 @@ import Image from 'next/image'
 // local
 import { BottomBlock } from './BottomBlock'
 import { scrollToContactForm } from '@/global'
-import { classNames as cn } from '@/utils'
+import { classNames as cn, useIsMobile } from '@/utils'
 import { lato, syncopate } from '@/utils/fonts'
 // styles
 import styles from './styles.module.scss'
 
 export const Main: FC = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const { isMobile } = useIsMobile()
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsVisible(true)
@@ -28,7 +29,7 @@ export const Main: FC = () => {
         </div>
         <p className={lato.className}>{'We provide innovative software development solutions to enhance your business.'}</p>
         <button
-          onClick={scrollToContactForm}
+          onClick={() => scrollToContactForm(isMobile)}
           className={lato.className}>{'Get Started'}</button>
       </div>
       <Image

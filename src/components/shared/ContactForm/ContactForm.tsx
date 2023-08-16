@@ -9,7 +9,7 @@ import { ThankYouModal } from '@/components/modals'
 import { FormValues, FormValuesErrors } from './types'
 import { setCurrRef } from '@/global'
 import { routes } from '@/routes'
-import { classNames, lato, validateEmail } from '@/utils'
+import { classNames, lato, useIsMobile, validateEmail } from '@/utils'
 // styles
 import styles from './styles.module.scss'
 
@@ -17,6 +17,7 @@ export const ContactForm: FC = () => {
   const { t } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
   const [agree, setAgree] = useState(false)
+  const { isMobile } = useIsMobile()
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -88,7 +89,7 @@ export const ContactForm: FC = () => {
   }
 
   return (
-    <div ref={ref} className={`${styles.contactForm} ${lato.className}`} id='contact-form'>
+    <div ref={ref} className={`${styles.contactForm} ${lato.className} ${isMobile ? 'contact-form-mobile' : 'contact-form'}`}>
       <div className={styles.contactFormMap}>
         <Image
           src='/assets/map.png'
